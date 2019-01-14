@@ -1,12 +1,21 @@
 import React from 'react'
-import { connect } from 'react-redux'
-
+import {
+  Button,
+  Navbar,
+  NavbarBrand,
+  Nav,
+  } from 'reactstrap';
 function NavHeader() {
 
 return(
-  <nav className="navbar navbar-dark">
-      <a className="navbar-brand"><strong><span aria-label='cart'>📚 </span> Teachers Pet. </strong></a>
-  </nav>
+  <div>
+  <Navbar color="light" light expand="md">
+    <NavbarBrand href="/">📚 Teachers Pet.</NavbarBrand>
+      <Nav className="ml-auto" navbar>     
+        <Button color="primary">Login</Button>{' '}
+      </Nav>
+  </Navbar>
+</div>
   )
 }
 export default NavHeader
