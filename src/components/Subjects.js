@@ -1,8 +1,12 @@
 import React from 'react'
 import { Button, Card, CardBody, CardTitle, CardText, Container, Col, Row } from 'reactstrap'
+import {Link} from 'react-router-dom'
+
+import {connect} from 'react-redux'
+import { bindActionCreators} from 'redux'
 
 
-export default class SubjectsPage extends React.Component {
+class SubjectsPage extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -12,7 +16,9 @@ export default class SubjectsPage extends React.Component {
       <Container>
         <Row>
           <Col sm="12" md={{ size: 6, offset: 3 }}>
+          <Link to='/createassignment'>
             <Button color="primary" size="lg" block>Create New Assignment</Button>
+          </Link>
           </Col>
         </Row>
       </Container>
@@ -28,8 +34,11 @@ export default class SubjectsPage extends React.Component {
                           <a size="sm" className="btn btn-outline-danger float-right" id="deleteBtn">Delete</a>
                           </div>
                           <div>
-                          <a size="sm" className="btn btn-outline-info float-right" id="editBtn">Edit</a>
+                          <Link to='/createassignment'>
+                            <a size="sm" className="btn btn-outline-info float-right" id="editBtn">Edit</a>
+                          </Link>
                           </div>
+                          
                         </CardText>
                   </CardBody>
                 </Card>
@@ -68,3 +77,20 @@ export default class SubjectsPage extends React.Component {
     )
   }
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+    assignments: state.assignments,
+    students: state.students  
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    
+    
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SubjectsPage)

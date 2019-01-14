@@ -3,9 +3,12 @@ import { ListGroup, ListGroupItem, TabContent, TabPane, Nav, NavItem, NavLink, R
 import classnames from 'classnames';
 import { Link } from 'react-router-dom'
 
+import {connect} from 'react-redux'
+import { bindActionCreators} from 'redux'
 
 
-export default class LandingPage extends React.Component {
+
+class LandingPage extends React.Component {
   constructor(props) {
     super(props);
 
@@ -73,3 +76,20 @@ render(){
     )
   }
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+    assignments: state.assignments,
+    students: state.students  
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    
+    
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LandingPage)
