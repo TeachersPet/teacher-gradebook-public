@@ -4,9 +4,10 @@ import {
   Navbar,
   NavbarBrand,
   Nav,
-  } from 'reactstrap';
-function NavHeader() {
+} from 'reactstrap';
 
+
+function NavHeader(){
 return(
   <div>
   <Navbar  light expand="md">

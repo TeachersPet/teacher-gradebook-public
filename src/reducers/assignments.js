@@ -1,15 +1,10 @@
 // import {GET_POSTS} from '../actions/posts'
 // import {FILTER_POSTS} from '../actions/posts'
 
-
-
 function assignments(state = [], action) {
-    
-    switch(action.type) {
-    
+    switch (action.type) {
 
-        default: 
-            return state 
+        default: return state
     }
 }
 
