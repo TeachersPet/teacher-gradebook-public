@@ -23,11 +23,9 @@ export function getAssignments(teacherId, subjectId) {
 export const GET_ONE_ASSIGNMENT = 'GET_ONE_ASSIGNMENT'
 
 export function getOneAssignment(teacherId, subjectId, assignmentId) {
-  console.log('starting to get 1 assignment')
   return dispatch => (
     axios.get(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`)
       .then((response) => {
-        console.log('dispatching assignment')
         dispatch({
           type: GET_ONE_ASSIGNMENT,
           payload: response.data
@@ -36,3 +34,14 @@ export function getOneAssignment(teacherId, subjectId, assignmentId) {
       .catch(() => console.log('could not get 1 assignment'))
   )
 }
+
+export function deleteAssignment(teacherId, subjectId, assignmentId) {
+  return(dispatch) => {
+      axios.delete(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`)
+      .then( () => {
+          dispatch(getAssignments())
+      })
+      .catch(() => console.log('could not delete assignment.'))
+  }
+}
+

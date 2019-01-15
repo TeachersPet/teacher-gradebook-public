@@ -44,6 +44,15 @@
   background-color: #E9F1F7;
   border-radius: 20px; }
 
+td, th {
+  
+  color: black;
+  background-color: white;
+}
+.viewAssignmentHeader {
+  color: white;
+}
+
 body {
   font-family: 'PT Sans', sans-serif;
   background: -webkit-linear-gradient(rgba(19, 27, 35, 0.1), rgba(19, 27, 35, 0.1)), url("/img/Books.jpg") repeat;
