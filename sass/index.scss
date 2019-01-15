@@ -1,15 +1,45 @@
 @charset "utf-8";
 
 
-$matteBlack: black;
+$Black: #131B23;
+$FlashWhite: #E9F1F7;
+$Lapis: #2274A5;
+$Pearl: #E7DFC6;
+$Taupe: #816C61;
+$BtnBlue: #41BBD9;
 
+
+#CreateAssign, #SignIn {
+  background-color: $BtnBlue;
+  color: $FlashWhite;
+}
+
+.Login {
+  background-color: $Black;
+  opacity: 0.8;
+  padding: 10%;
+  border-radius: 20px;
+  color: $FlashWhite;
+}
+
+#headerTitle {
+  font-family: 'Schoolbell', cursive;
+  color: $FlashWhite;
+}
+
+#NavHeader {
+  background-color: $Lapis;
+  opacity: 0.8;
+}
 
 #NavFooter {
   height: 50px;
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: blue;
+  background-color: $Lapis;
+  opacity: 0.7;
+
 }
 
 #editBtn {
@@ -30,15 +60,17 @@ border-radius: 20px;
   width: 10%;
 }
 
+.SubjectCards {
+background-color: $FlashWhite;
+border-radius: 20px;
+}
+
 body {
-
-background-image: url('/img/class.jpg'); 
-
-  // font-family: 'PT Sans', sans-serif;
-  // background: -webkit-linear-gradient( transparentize($matteBlack, 0.50),
-  // transparentize($matteBlack, 0.50)),
-  // url('/src/img/class.jpg') repeat;
-  // background-position: 0 auto;
-  // background-size: 0/50% auto;
-  // height: 350px;
+  font-family: 'PT Sans', sans-serif;
+  background: -webkit-linear-gradient( transparentize($Black, 0.50),
+  transparentize($Black, 0.50)),
+  url('/img/Books.jpg') repeat;
+  background-position: 0 auto;
+  background-size: 0/50% auto;
+  height: 350px;
 }

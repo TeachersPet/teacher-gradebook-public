@@ -23,11 +23,11 @@ class Login extends Component {
   }
   render() {
     return (
-      <Container>
+      <Container >
         <Row>
           <Col md={{ size: 6, offset: 3 }}>
-            <h2>Login</h2>
-            <Form>
+            <Form className="Login">
+            {/* <h2>Login</h2> */}
               <FormGroup>
                 <Label for='email'>Email</Label>
                 <Input type='email' name='email' id='email' value={this.state.email} onChange={event => this.setState({ email: event.target.value })} />
@@ -39,7 +39,7 @@ class Login extends Component {
               <Button className="mr-3" type="submit" color="primary">
                 Login
               </Button>
-              <Link to="/signup">Not a member?</Link>
+              <Link to="/signup">Not a member? Sign Up!</Link>
             </Form>
           </Col>
         </Row>

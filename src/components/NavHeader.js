@@ -10,12 +10,13 @@ import {
 function NavHeader(){
 return(
   <div>
-  <Navbar  light expand="md">
-    <NavbarBrand href="/">📚 Teachers Pet.</NavbarBrand>
+  <Navbar id="NavHeader"  expand="md">
+    <NavbarBrand id="headerTitle" href="/"><h1>🍎  Teachers Pet.</h1></NavbarBrand>
       <Nav className="ml-auto" navbar>     
-        <Button color="primary">Login</Button>{' '}
+        <Button id="SignIn"><i class="far fa-user"></i> Login</Button>{' '}
       </Nav>
   </Navbar>
+  <br></br>
 </div>
   )
 }
