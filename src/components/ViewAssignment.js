@@ -3,56 +3,56 @@ import { Container, Table, FormGroup, Input, Label, Form, FormText, Button, List
 import classnames from 'classnames';
 import { Link } from 'react-router-dom'
 
-import {connect} from 'react-redux'
-import { bindActionCreators} from 'redux'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import CreateAssignment from './CreateAssignment';
 
 class ViewAssignment extends React.Component {
     constructor(props) {
-      super(props);
+        super(props);
     }
     render() {
         return (
-        <Container>
-            <Row>
-           <Col><h1>Frog quiz #4</h1> </Col>
-           <Col><div className='float-right'>
-           <Link to='/createassignment'><Button>All Assignments</Button></Link></div></Col>
-           </Row>
-           <h4>10/12/18</h4>
-           
-            <Table>
-                <thead>
-                <tr>
-                    <th>Student</th>
-                    <th>Grade</th>
-                    <th>Comments</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Zelda  </td>
-                    <td>:)</td>
-                    <td>master of the frogs!</td>>
+            <Container>
+                <Row>
+                    <Col><h1>Frog quiz #4</h1> </Col>
+                    <Col><div className='float-right'>
+                        <Link to='/createassignment'><Button>All Assignments</Button></Link></div></Col>
+                </Row>
+                <h4>10/12/18</h4>
+
+                <Table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Grade</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Zelda  </td>
+                            <td>:)</td>
+                            <td>master of the frogs!</td>>
                     <td><Button>Edit</Button></td>
-                </tr>
-                <tr>
-                
-                    <td>Nap Lajoie</td>
-                    <td>:(</td>
-                    <td>Overdeveloped sense of frog fairness</td>
-                    <td><Button>Edit</Button></td>
-                </tr>
-                <tr>
-                
-                    <td>Bobby</td>
-                    <td>:|</td>
-                    <td>Should have voted for presentations</td>
-                    <td><Button>Edit</Button></td>
-                </tr>
-                </tbody>
-        </Table>
-        </Container>
+                        </tr>
+                        <tr>
+
+                            <td>Nap Lajoie</td>
+                            <td>:(</td>
+                            <td>Overdeveloped sense of frog fairness</td>
+                            <td><Button>Edit</Button></td>
+                        </tr>
+                        <tr>
+
+                            <td>Bobby</td>
+                            <td>:|</td>
+                            <td>Should have voted for presentations</td>
+                            <td><Button>Edit</Button></td>
+                        </tr>
+                    </tbody>
+                </Table>
+            </Container>
         )
     }
 }
@@ -60,17 +60,16 @@ class ViewAssignment extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-      assignments: state.assignments,
-      students: state.students  
+        assignments: state.assignments,
+        students: state.students
     }
-  }
-  
-  const mapDispatchToProps = (dispatch) => {
+}
+
+const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-      
+
     }, dispatch)
-  }
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(ViewAssignment)
-  
-    
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ViewAssignment)
+

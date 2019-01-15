@@ -30,7 +30,7 @@ class CreateAssignment extends React.Component {
                         <Label for="examplePassword">Description</Label>
                         <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
                     </FormGroup>
-                        {this.props.students.map( student => <CreateAssignmentStudent key={student.id} {...student} />)}
+                    {this.props.students.map(student => <CreateAssignmentStudent key={student.id} {...student} />)}
 
                     <Button className='float-right'>Submit</Button>
                 </Form>
