@@ -67,7 +67,6 @@ class LandingPage extends React.Component {
             <Row>
               <Col sm="12">
                 <ListGroup>
-                  {/* MAP TO STUDENTS HERE */}
                   <Link to="/Students">
                     <ListGroupItem action> Thurman </ListGroupItem>
                   </Link>
