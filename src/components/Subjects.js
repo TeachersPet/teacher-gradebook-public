@@ -17,61 +17,55 @@ class SubjectsPage extends React.Component {
           <Row>
             <Col sm="12" md={{ size: 6, offset: 3 }}>
               <Link to='/createassignment'>
-                <Button color="primary" size="lg" block>Create New Assignment</Button>
+                <Button id="CreateAssign" size="lg" block><i class="fas fa-folder-plus"></i> Create New Assignment</Button>
               </Link>
             </Col>
           </Row>
         </Container>
 
         <Container>
-          <Card className="border-dark">
-            <CardBody>
-              <CardTitle > This Is A Card Title
-                      </CardTitle>
-                        <CardText>
-                          <Link to='/viewassignment'> This is the assignment that you are failing </Link>
-                          <div>
-                          <a size="sm" className="btn btn-outline-danger float-right" id="deleteBtn">Delete</a>
-                          </div>
-
-                          <div>
-                  <a size="sm" className="btn btn-outline-danger float-right" id="deleteBtn">Delete</a>
-                </div>
-                <div>
-                  <Link to='/createassignment'>
-                    <a size="sm" className="btn btn-outline-info float-right" id="editBtn">Edit</a>
-                  </Link>
-                </div>
+          <Card className="border">
+            <CardBody className="SubjectCards">
+              <CardTitle > <Link to='/viewassignment'>This Is A Card Title </Link> </CardTitle> 
+                <CardText>
+                   This is the assignment that you are failing
+                    <div>
+                      <a size="sm" className="btn btn-outline-danger float-right" id="deleteBtn"><i class="far fa-trash-alt"></i> Delete</a>
+                    </div>
+                    <div>
+                      <Link to='/createassignment'>
+                      
+                        <a size="sm" className="btn btn-outline-info float-right" id="editBtn"><i class="fas fa-pencil-alt"></i> Edit</a>
+                      </Link>
+                    </div>
 
               </CardText>
             </CardBody>
           </Card>
-          <Card className="border-dark">
-            <CardBody>
-              <CardTitle> This Is A Card Title
-                      </CardTitle>
-              <CardText>
-                This is the assignment that you are failing
-                          <div>
-                  <a size="sm" className="btn btn-outline-danger float-right" id="deleteBtn">Delete</a>
+          <Card className="border">
+            <CardBody className="SubjectCards">
+              <CardTitle> <Link to='/viewassignment'> This Is A Card Title </Link> </CardTitle>
+                <CardText>
+                  This is the assignment that you are failing
+                <div>
+                  <a size="sm" className="btn btn-outline-danger float-right" id="deleteBtn"><i class="far fa-trash-alt"></i>  Delete</a>
                 </div>
                 <div>
-                  <a size="sm" className="btn btn-outline-info float-right" id="editBtn">Edit</a>
+                  <a size="sm" className="btn btn-outline-info float-right" id="editBtn"><i class="fas fa-pencil-alt"></i> Edit</a>
                 </div>
               </CardText>
             </CardBody>
           </Card>
-          <Card className="border-dark">
-            <CardBody>
-              <CardTitle > This Is A Card Title
-                      </CardTitle>
+          <Card className="border">
+            <CardBody className="SubjectCards">
+              <CardTitle > <Link to='/viewassignment'> This Is A Card Title </Link> </CardTitle>
               <CardText>
                 This is the assignment that you are failing
                           <div>
-                  <a size="sm" className="btn btn-outline-danger float-right" id="deleteBtn">Delete</a>
+                  <a size="sm" className="btn btn-outline-danger float-right" id="deleteBtn"><i class="far fa-trash-alt"></i> Delete</a>
                 </div>
                 <div>
-                  <a size="sm" className="btn btn-outline-info float-right" id="editBtn">Edit</a>
+                  <a size="sm" className="btn btn-outline-info float-right" id="editBtn"><i class="fas fa-pencil-alt"></i> Edit</a>
                 </div>
               </CardText>
             </CardBody>
