@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux'
 
 class CreateAssignment extends React.Component {
     constructor(props) {
-        super(props);
+      super(props);
     }
     render() {
         return (
@@ -130,7 +130,6 @@ class CreateAssignment extends React.Component {
         )
     }
 }
-
 
 const mapStateToProps = (state) => {
     return {
