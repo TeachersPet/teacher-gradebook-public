@@ -5,12 +5,20 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
+import { getAssignments } from '../actions/assignments'
+
 
 class SubjectsPage extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount() {
+    this.props.getAssignments()
+  }
+
   render() {
+    console.log(this.props.assignments)
     return (
       <div>
         <Container>
@@ -78,15 +86,13 @@ class SubjectsPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    assignments: state.assignments,
-    students: state.students
+    assignments: state.assignments
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-
-
+    getAssignments
   }, dispatch)
 }
 

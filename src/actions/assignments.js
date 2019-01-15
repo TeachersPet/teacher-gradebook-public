@@ -6,7 +6,7 @@ const BASE_URL = process.env.REACT_APP_API_URL
 
 export function getAssignments() {
   return dispatch => (
-    axios.get(`${BASE_URL}/teachers/:teacherId/subjects/:subjectId/assignments`)
+    axios.get(`http://localhost:3000/teachers/1/subjects/3/assignments`)
       .then((response) => {
         dispatch({
           type: GET_ASSIGNMENTS,
