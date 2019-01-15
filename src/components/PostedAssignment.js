@@ -10,12 +10,12 @@ function PostedAssignment({ assignment_name, date }) {
         <CardTitle > <Link to='/viewassignment'>{date} </Link> </CardTitle>
         <CardText>
           {assignment_name}
-          <div>
+          <span>
             <a size="sm" className="btn btn-outline-danger float-right" id="deleteBtn"><i className="far fa-trash-alt"></i> Delete</a>
-          </div>
-          <div>
+          </span>
+          <span>
             <a size="sm" className="btn btn-outline-info float-right" id="editBtn"><i className="fas fa-pencil-alt"></i> Edit</a>
-          </div>
+          </span>
         </CardText>
       </CardBody>
     </Card>

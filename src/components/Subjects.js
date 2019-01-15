@@ -15,16 +15,19 @@ class SubjectsPage extends React.Component {
   }
 
   componentDidMount(){
-    this.props.getAssignments()
+    const subjectId = this.props.location.search.split('=')[1]
+    this.props.getAssignments(1, subjectId)
+    //need to replace 1 with teacherId once we are authenticated
   } 
 
   render() {    
+    const subjectId = this.props.location.search.split('=')[1]
     return (
       <div>
         <Container>
           <Row>
             <Col sm="12" md={{ size: 6, offset: 3 }}>
-              <Link to='/createassignment'>
+              <Link to={`/createassignment?subjectId=${subjectId}`}>
                 <Button id="CreateAssign" size="lg" block><i className="fas fa-folder-plus"></i> Create New Assignment</Button>
               </Link>
             </Col>

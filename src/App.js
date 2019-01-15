@@ -6,7 +6,7 @@ import NavFooter from './components/NavFooter';
 import Login from './components/Login'
 import Signup from './components/Signup'
 import LandingPage from './components/LandingPage'
-import SubjectsPage from './components/Subjects';
+import Subjects from './components/Subjects';
 import CreateAssignment from './components/CreateAssignment'
 import StudentPage from './components/StudentPage'
 import { Route, BrowserRouter } from 'react-router-dom'
@@ -27,7 +27,7 @@ class App extends Component {
             <Route exact path="/" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/Gradebook" component={LandingPage} />
-            <Route exact path="/Subjects" component={SubjectsPage} />
+            <Route exact path="/Subjects" component={Subjects} />
             <Route exact path="/CreateAssignment" component={CreateAssignment} />
             <Route path="/Students" component={StudentPage} />
           </div>

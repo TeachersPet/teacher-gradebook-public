@@ -4,9 +4,9 @@ export const GET_ASSIGNMENTS = 'GET_ASSIGNMENTS'
 
 const BASE_URL = process.env.REACT_APP_API_URL
 
-export function getAssignments() {
+export function getAssignments(teacherId, subjectId) {
   return dispatch => (
-    axios.get(`${BASE_URL}/teachers/1/subjects/3/assignments`)
+    axios.get(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments`)
       .then((response) => {
         dispatch({
           type: GET_ASSIGNMENTS,
@@ -14,4 +14,16 @@ export function getAssignments() {
         })
       })
   )
+}
+
+export function postAssignment(teacherId, subjectId, newAssignment) {
+  console.log(teacherId)
+  return dispatch => {
+    axios.post(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments`, newAssignment)
+      .then(() => {
+        dispatch(
+          getAssignments(teacherId, subjectId)
+        )
+      })
+  }
 }
