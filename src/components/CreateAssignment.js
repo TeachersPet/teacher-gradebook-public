@@ -1,15 +1,22 @@
 import React from 'react';
-import { Container, FormGroup, Input, Label, Form, FormText, Button, ListGroup, ListGroupItem, TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
-import classnames from 'classnames';
-import { Link } from 'react-router-dom'
+import { Container, FormGroup, Input, Label, Form, Button } from 'reactstrap';
+
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+
+import { getStudents } from '../actions/students'
+import CreateAssignmentStudent from './CreateAssignmentStudent';
 
 class CreateAssignment extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    componentDidMount() {
+        this.props.getStudents()
+    }
+
     render() {
         return (
             <Container>
@@ -23,104 +30,7 @@ class CreateAssignment extends React.Component {
                         <Label for="examplePassword">Description</Label>
                         <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
                     </FormGroup>
-
-
-                    <FormGroup>
-                        <Row>
-
-                            <Col><Label for="exampleSelect">Thurmon</Label></Col>
-                            <Col>
-                                <Input type="select" name="select" id="exampleSelect">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </Input>
-                            </Col>
-
-                            <Col>
-                                <Input placeholder='Comments'></Input>
-                            </Col>
-                        </Row>
-                    </FormGroup>
-
-                    <FormGroup>
-                        <Row>
-
-                            <Col><Label for="exampleSelect">Thurmon</Label></Col>
-                            <Col>
-                                <Input type="select" name="select" id="exampleSelect">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </Input>
-                            </Col>
-
-                            <Col>
-                                <Input placeholder='Comments'></Input>
-                            </Col>
-                        </Row>
-                    </FormGroup>
-                    <FormGroup>
-                        <Row>
-
-                            <Col><Label for="exampleSelect">Thurmon</Label></Col>
-                            <Col>
-                                <Input type="select" name="select" id="exampleSelect">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </Input>
-                            </Col>
-
-                            <Col>
-                                <Input placeholder='Comments'></Input>
-                            </Col>
-                        </Row>
-                    </FormGroup>
-                    <FormGroup>
-                        <Row>
-
-                            <Col><Label for="exampleSelect">Thurmon</Label></Col>
-                            <Col>
-                                <Input type="select" name="select" id="exampleSelect">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </Input>
-                            </Col>
-
-                            <Col>
-                                <Input placeholder='Comments'></Input>
-                            </Col>
-                        </Row>
-                    </FormGroup>
-                    <FormGroup>
-                        <Row>
-
-                            <Col><Label for="exampleSelect">Thurmon</Label></Col>
-                            <Col className='grade-input'>
-                                <Input type="select" name="select" id="exampleSelect">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </Input>
-                            </Col>
-
-                            <Col>
-                                <Input placeholder='Comments'></Input>
-                            </Col>
-                        </Row>
-                    </FormGroup>
+                        {this.props.students.map( student => <CreateAssignmentStudent key={student.id} {...student} />)}
 
                     <Button className='float-right'>Submit</Button>
                 </Form>
@@ -139,6 +49,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
+        getStudents
     }, dispatch)
 }
 

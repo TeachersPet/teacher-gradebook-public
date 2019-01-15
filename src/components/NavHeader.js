@@ -11,7 +11,7 @@ function NavHeader(){
 return(
   <div>
   <Navbar id="NavHeader"  expand="md">
-    <NavbarBrand href="/"><h1 className="headerTitle">🍎 
+    <NavbarBrand href="/Gradebook"><h1 className="headerTitle">🍎 
     <text> </text>
     <text style={{color: 'orange' }}>T</text>
     <text style={{color: 'yellow' }}>e</text>

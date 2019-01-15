@@ -1,15 +1,15 @@
 import axios from 'axios'
 
-export const GET_ASSIGNMENTS = 'GET_ASSIGNMENTS'
+export const GET_STUDENTS = 'GET_STUDENTS'
 
 const BASE_URL = process.env.REACT_APP_API_URL
 
-export function getAssignments() {
+export function getStudents() {
   return dispatch => (
-    axios.get(`${BASE_URL}/teachers/:teacherId/subjects/:subjectId/assignments`)
+    axios.get(`${BASE_URL}/teachers/1/subjects/1/students`)
       .then((response) => {
         dispatch({
-          type: GET_ASSIGNMENTS,
+          type: GET_STUDENTS,
           payload: response.data
         })
       })

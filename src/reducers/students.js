@@ -1,8 +1,10 @@
-// import {GET_POSTS} from '../actions/posts'
-// import {FILTER_POSTS} from '../actions/posts'
+import {GET_STUDENTS} from '../actions/students'
 
 function students(state = [], action) {
     switch (action.type) {
+        case GET_STUDENTS:
+            return action.payload
+
         default: return state
     }
 }
