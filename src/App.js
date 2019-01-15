@@ -6,22 +6,24 @@ import NavFooter from './components/NavFooter';
 import LandingPage from './components/LandingPage'
 import SubjectsPage from './components/Subjects';
 import CreateAssignment from './components/CreateAssignment'
-import { Route, Link } from 'react-router-dom'
-
 import {connect} from 'react-redux'
 import { bindActionCreators} from 'redux'
-
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         <NavHeader />
+        <BrowserRouter>
+        <div>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/Subjects" component={SubjectsPage} />
           <Route exact path="/CreateAssignment" component={CreateAssignment}/>
           {/* <Route path="/Students" component={StudentsPage} /> */}
+          </div>
+          </BrowserRouter>
         <NavFooter />
       </div>
     );
