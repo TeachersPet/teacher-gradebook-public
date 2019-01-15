@@ -28,8 +28,12 @@ class SubjectsPage extends React.Component {
             <CardBody>
               <CardTitle > This Is A Card Title
                       </CardTitle>
-              <CardText>
-                This is the assignment that you are failing
+                        <CardText>
+                          <Link to='/viewassignment'> This is the assignment that you are failing </Link>
+                          <div>
+                          <a size="sm" className="btn btn-outline-danger float-right" id="deleteBtn">Delete</a>
+                          </div>
+
                           <div>
                   <a size="sm" className="btn btn-outline-danger float-right" id="deleteBtn">Delete</a>
                 </div>

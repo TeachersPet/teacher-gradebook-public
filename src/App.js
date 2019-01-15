@@ -7,7 +7,10 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import LandingPage from './components/LandingPage'
 import SubjectsPage from './components/Subjects';
+import ViewAssignment from './components/ViewAssignment'
 import CreateAssignment from './components/CreateAssignment'
+
+
 import StudentPage from './components/StudentPage'
 import { Route, BrowserRouter } from 'react-router-dom'
 
@@ -17,11 +20,13 @@ import { bindActionCreators } from 'redux'
 
 
 
+  
 class App extends Component {
   render() {
     return (
       <div className="App" >
         <NavHeader />
+
         <BrowserRouter>
           <div>
             <Route exact path="/" component={Login} />
@@ -32,6 +37,7 @@ class App extends Component {
             <Route path="/Students" component={StudentPage} />
           </div>
         </BrowserRouter>
+
         <NavFooter />
       </div>
     );
