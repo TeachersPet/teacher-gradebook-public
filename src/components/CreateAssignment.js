@@ -8,7 +8,7 @@ import { bindActionCreators} from 'redux'
 
 class CreateAssignment extends React.Component {
     constructor(props) {
-      super(props);
+      super(props)
     }
     render() {
         return (
@@ -17,7 +17,7 @@ class CreateAssignment extends React.Component {
                 <h1>New Assignment:</h1><br></br>
                 <Form>
             <FormGroup>
-            <Label for="exampleEmail">Assignment Name</Label>
+            <Label for="exampleEmail">{this.props.name}</Label>
             <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
             </FormGroup>
             <FormGroup>
@@ -127,11 +127,6 @@ class CreateAssignment extends React.Component {
       </Form>
 
             </Container>
-
-        
-        
-        
-        
         )
     }
 }
