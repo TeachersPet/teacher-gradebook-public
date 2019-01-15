@@ -3,8 +3,8 @@ import { ListGroup, ListGroupItem, TabContent, TabPane, Nav, NavItem, NavLink, R
 import classnames from 'classnames';
 import { Link } from 'react-router-dom'
 
-import {connect} from 'react-redux'
-import { bindActionCreators} from 'redux'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 
 
@@ -25,54 +25,56 @@ class LandingPage extends React.Component {
       });
     }
   }
-render(){
-  return (
-    <div>
-    <Nav tabs>
-      <NavItem>
-        <NavLink
-          className={classnames({ active: this.state.activeTab === '1' })}
-          onClick={() => { this.toggle('1'); }}>
-          <strong>Subjects</strong>
-        </NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink
-          className={classnames({ active: this.state.activeTab === '2' })}
-          onClick={() => { this.toggle('2'); }}>
-          <strong>Students</strong>
-        </NavLink>
-      </NavItem>
-    </Nav>
-    <TabContent activeTab={this.state.activeTab}>
-    <TabPane tabId="1">
-    <Row>
-      <Col sm="12">
-        <ListGroup>
-        <Link to="/Subjects">
-          <ListGroupItem action> Social Studies </ListGroupItem>
-          <ListGroupItem action> History </ListGroupItem>
-          <ListGroupItem action> Math </ListGroupItem>
-          <ListGroupItem action> Science </ListGroupItem>
-          </Link>
-        </ListGroup>
-      </Col>
-    </Row>
-  </TabPane>
-</TabContent>
-<TabContent activeTab={this.state.activeTab}>
-    <TabPane tabId="2">
-    <Row>
-      <Col sm="12">
-        <ListGroup>
-        {/* MAP TO STUDENTS HERE */}
-          <ListGroupItem action> So </ListGroupItem>
-        </ListGroup>
-      </Col>
-    </Row>
-  </TabPane>
-</TabContent>
-</div>
+  render() {
+    return (
+      <div>
+        <Nav tabs>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '1' })}
+              onClick={() => { this.toggle('1'); }}>
+              <strong>Subjects</strong>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '2' })}
+              onClick={() => { this.toggle('2'); }}>
+              <strong>Students</strong>
+            </NavLink>
+          </NavItem>
+        </Nav>
+        <TabContent activeTab={this.state.activeTab}>
+          <TabPane tabId="1">
+            <Row>
+              <Col sm="12">
+                <ListGroup>
+                  <Link to="/Subjects">
+                    <ListGroupItem action> Social Studies </ListGroupItem>
+                    <ListGroupItem action> History </ListGroupItem>
+                    <ListGroupItem action> Math </ListGroupItem>
+                    <ListGroupItem action> Science </ListGroupItem>
+                  </Link>
+                </ListGroup>
+              </Col>
+            </Row>
+          </TabPane>
+        </TabContent>
+        <TabContent activeTab={this.state.activeTab}>
+          <TabPane tabId="2">
+            <Row>
+              <Col sm="12">
+                <ListGroup>
+                  {/* MAP TO STUDENTS HERE */}
+                  <Link to="/Students">
+                    <ListGroupItem action> Thurman </ListGroupItem>
+                  </Link>
+                </ListGroup>
+              </Col>
+            </Row>
+          </TabPane>
+        </TabContent>
+      </div>
     )
   }
 }
@@ -81,13 +83,12 @@ render(){
 const mapStateToProps = (state) => {
   return {
     assignments: state.assignments,
-    students: state.students  
+    students: state.students
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    
     
   }, dispatch)
 }

@@ -3,19 +3,20 @@ import { Container, FormGroup, Input, Label, Form, FormText, Button, ListGroup, 
 import classnames from 'classnames';
 import { Link } from 'react-router-dom'
 
-import {connect} from 'react-redux'
-import { bindActionCreators} from 'redux'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 class CreateAssignment extends React.Component {
     constructor(props) {
-      super(props)
+        super(props);
     }
     render() {
         return (
 
-        <Container>
+            <Container>
                 <h1>New Assignment:</h1><br></br>
                 <Form>
+
             <FormGroup>
             <Label for="exampleEmail">{this.props.name}</Label>
             <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
@@ -125,7 +126,6 @@ class CreateAssignment extends React.Component {
             
             <Button className='float-right'>Submit</Button>
       </Form>
-
             </Container>
         )
     }
@@ -134,18 +134,15 @@ class CreateAssignment extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-      assignments: state.assignments,
-      students: state.students  
+        assignments: state.assignments,
+        students: state.students
     }
-  }
-  
-  const mapDispatchToProps = (dispatch) => {
+}
+
+const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-      
-      
     }, dispatch)
-  }
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(CreateAssignment)
-  
-    
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateAssignment)
+

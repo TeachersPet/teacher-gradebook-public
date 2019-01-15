@@ -1,7 +1,15 @@
 @charset "utf-8";
 
+
+$matteBlack: black;
+
+
 #NavFooter {
   height: 50px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: blue;
 }
 
 #editBtn {
@@ -20,4 +28,17 @@ border-radius: 20px;
 
 .grade-input {
   width: 10%;
+}
+
+body {
+
+background-image: url('/img/class.jpg'); 
+
+  // font-family: 'PT Sans', sans-serif;
+  // background: -webkit-linear-gradient( transparentize($matteBlack, 0.50),
+  // transparentize($matteBlack, 0.50)),
+  // url('/src/img/class.jpg') repeat;
+  // background-position: 0 auto;
+  // background-size: 0/50% auto;
+  // height: 350px;
 }
