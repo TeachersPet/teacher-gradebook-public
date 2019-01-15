@@ -4,18 +4,18 @@
 
 .Login {
   background-color: #131B23;
-  opacity: 0.8;
+  opacity: 0.9;
   padding: 10%;
   border-radius: 20px;
   color: #E9F1F7; }
 
-#headerTitle {
+.headerTitle {
   font-family: 'Schoolbell', cursive;
-  color: #E9F1F7; }
+  flex-direction: row; }
 
 #NavHeader {
   background-color: #2274A5;
-  opacity: 0.8; }
+  opacity: 0.9; }
 
 #NavFooter {
   height: 50px;
@@ -33,8 +33,9 @@
   margin: 5px;
   border-radius: 20px; }
 
-.border-dark {
-  margin: 15px; }
+.border {
+  margin: 15px;
+  opacity: 0.9; }
 
 .grade-input {
   width: 10%; }
@@ -45,7 +46,7 @@
 
 body {
   font-family: 'PT Sans', sans-serif;
-  background: -webkit-linear-gradient(rgba(19, 27, 35, 0.5), rgba(19, 27, 35, 0.5)), url("/img/Books.jpg") repeat;
+  background: -webkit-linear-gradient(rgba(19, 27, 35, 0.1), rgba(19, 27, 35, 0.1)), url("/img/Books.jpg") repeat;
   background-position: 0 auto;
   background-size: 0/50% auto;
   height: 350px; }

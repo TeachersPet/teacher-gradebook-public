@@ -5,7 +5,6 @@ $Black: #131B23;
 $FlashWhite: #E9F1F7;
 $Lapis: #2274A5;
 $Pearl: #E7DFC6;
-$Taupe: #816C61;
 $BtnBlue: #41BBD9;
 
 
@@ -16,20 +15,20 @@ $BtnBlue: #41BBD9;
 
 .Login {
   background-color: $Black;
-  opacity: 0.8;
+  opacity: 0.9;
   padding: 10%;
   border-radius: 20px;
   color: $FlashWhite;
 }
 
-#headerTitle {
+ .headerTitle {
   font-family: 'Schoolbell', cursive;
-  color: $FlashWhite;
+  flex-direction: row;
 }
 
 #NavHeader {
   background-color: $Lapis;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 #NavFooter {
@@ -39,7 +38,6 @@ $BtnBlue: #41BBD9;
   width: 100%;
   background-color: $Lapis;
   opacity: 0.7;
-
 }
 
 #editBtn {
@@ -52,8 +50,9 @@ border-radius: 20px;
   border-radius: 20px;
 }
 
-.border-dark {
+.border {
   margin: 15px;
+  opacity: 0.9;
 }
 
 .grade-input {
@@ -67,8 +66,8 @@ border-radius: 20px;
 
 body {
   font-family: 'PT Sans', sans-serif;
-  background: -webkit-linear-gradient( transparentize($Black, 0.50),
-  transparentize($Black, 0.50)),
+  background: -webkit-linear-gradient( transparentize($Black, 0.90),
+  transparentize($Black, 0.90)),
   url('/img/Books.jpg') repeat;
   background-position: 0 auto;
   background-size: 0/50% auto;

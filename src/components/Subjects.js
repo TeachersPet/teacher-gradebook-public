@@ -24,11 +24,11 @@ class SubjectsPage extends React.Component {
         </Container>
 
         <Container>
-          <Card className="border-dark">
+          <Card className="border">
             <CardBody className="SubjectCards">
-              <CardTitle > This Is A Card Title </CardTitle>
+              <CardTitle > <Link to='/viewassignment'>This Is A Card Title </Link> </CardTitle> 
                 <CardText>
-                  <Link to='/viewassignment'> This is the assignment that you are failing </Link>
+                   This is the assignment that you are failing
                     <div>
                       <a size="sm" className="btn btn-outline-danger float-right" id="deleteBtn"><i class="far fa-trash-alt"></i> Delete</a>
                     </div>
@@ -42,9 +42,9 @@ class SubjectsPage extends React.Component {
               </CardText>
             </CardBody>
           </Card>
-          <Card className="border-dark">
+          <Card className="border">
             <CardBody className="SubjectCards">
-              <CardTitle> This Is A Card Title </CardTitle>
+              <CardTitle> <Link to='/viewassignment'> This Is A Card Title </Link> </CardTitle>
                 <CardText>
                   This is the assignment that you are failing
                 <div>
@@ -56,10 +56,9 @@ class SubjectsPage extends React.Component {
               </CardText>
             </CardBody>
           </Card>
-          <Card className="border-dark">
+          <Card className="border">
             <CardBody className="SubjectCards">
-              <CardTitle > This Is A Card Title
-                      </CardTitle>
+              <CardTitle > <Link to='/viewassignment'> This Is A Card Title </Link> </CardTitle>
               <CardText>
                 This is the assignment that you are failing
                           <div>
