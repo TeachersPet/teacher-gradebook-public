@@ -1,5 +1,9 @@
 #NavFooter {
-  height: 50px; }
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: blue; }
 
 #editBtn {
   margin: 5px;
