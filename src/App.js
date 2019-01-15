@@ -23,24 +23,25 @@ import { bindActionCreators } from 'redux'
   
 class App extends Component {
   render() {
-    return (
-      <div className="App" >
-        <NavHeader />
+  return (
+    <div className="App" >
+    <NavHeader />
 
-        <BrowserRouter>
-          <div>
-            <Route exact path="/" component={Login} />
-            <Route exact path ="/signup" component={Signup} />
-            <Route exact path="/Gradebook" component={LandingPage} />
-            <Route exact path="/Subjects" component={SubjectsPage} />
-            <Route exact path="/CreateAssignment" component={CreateAssignment} />
-            <Route path="/Students" component={StudentPage} />
-          </div>
-        </BrowserRouter>
-
-        <NavFooter />
+    <BrowserRouter>
+      <div>
+      <Route exact path="/" component={Login} />
+      <Route exact path ="/signup" component={Signup} />
+      <Route exact path="/Gradebook" component={LandingPage} />
+      <Route exact path="/Subjects" component={SubjectsPage} />
+      <Route exact path="/CreateAssignment" component={CreateAssignment} />
+      <Route exact path="/viewassignment" component={ViewAssignment} />
+      <Route path="/Students" component={StudentPage} />
       </div>
-    );
+    </BrowserRouter>
+
+    <NavFooter />
+    </div>
+  );
   }
 }
 
@@ -48,8 +49,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    assignments: state.assignments,
-    students: state.students
+  assignments: state.assignments,
+  students: state.students
   }
 }
 
