@@ -19,9 +19,11 @@ class SubjectsPage extends React.Component {
     const subjectId = this.props.location.search.split('=')[1]
     this.props.getAssignments(1, subjectId)
     //need to replace 1 with teacherId once we are authenticated
+    
   } 
 
-  render() {    
+  render() {  
+    console.log(this.props.assignments)  
     const subjectId = this.props.location.search.split('=')[1]
     return (
       <div>
@@ -36,7 +38,18 @@ class SubjectsPage extends React.Component {
         </Container>
 
         <Container>
-             {this.props.assignments.map(assignment => <PostedAssignment key={assignment.id} {...assignment}/>) }
+             {this.props.assignments.map(assignment => 
+              <PostedAssignment 
+                key={assignment.id} 
+                id={assignment.id}
+                deleteAssignment={this.props.deleteAssignment}
+                assignment_name={assignment.assignment_name}
+                date={assignment.date}
+              />
+             )
+            }
+
+                {/* // {...assignment}/>) } */}
         </Container>
       </div>
     )

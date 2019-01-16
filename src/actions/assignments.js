@@ -34,6 +34,7 @@ export function getOneAssignment(teacherId, subjectId, assignmentId) {
 
 export function deleteAssignment(teacherId, subjectId, assignmentId) {
   return(dispatch) => {
+      console.log(`DEEEELEEEEEEEEEEEEEEEEEEEETING ${assignmentId}`)
       axios.delete(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`)
       .then( () => {
           dispatch(getAssignments())
