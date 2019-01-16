@@ -34,7 +34,6 @@ export function getOneAssignment(teacherId, subjectId, assignmentId) {
 
 export function deleteAssignment(teacherId, subjectId, assignmentId) {
   return(dispatch) => {
-      console.log(`DEEEELEEEEEEEEEEEEEEEEEEEETING ${assignmentId}`)
       axios.delete(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`)
       .then( () => {
           dispatch(getAssignments(teacherId, subjectId))
@@ -44,7 +43,6 @@ export function deleteAssignment(teacherId, subjectId, assignmentId) {
 }
 
 export function postAssignment(teacherId, subjectId, newAssignment) {
-  console.log(teacherId)
   return dispatch => {
     axios.post(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments`, newAssignment)
       .then(() => {
@@ -52,5 +50,15 @@ export function postAssignment(teacherId, subjectId, newAssignment) {
           getAssignments(teacherId, subjectId)
         )
       })
+  }
+}
+
+export function updateAssignment(teacherId, subjectId, assignmentId) {
+  return(dispatch) => {
+    axios.put(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`)
+      .then(()=> { 
+        dispatch(getAssignments(teacherId, subjectId)
+      )
+    })
   }
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Button, Container, Col, Row } from 'reactstrap'
 import { Link } from 'react-router-dom'
-import { deleteAssignment } from '../actions/assignments'
+// import { deleteAssignment } from '../actions/assignments'
+// import { updateAssignment } from '../actions/assignments'
 import  PostedAssignment  from './PostedAssignment'
 
 import { connect } from 'react-redux'
@@ -65,8 +66,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-  deleteAssignment,
-
+    // deleteAssignment,
+    // updateAssignment,
     getAssignments
   }, dispatch)
 }

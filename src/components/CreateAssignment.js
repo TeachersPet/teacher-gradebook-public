@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container, FormGroup, Input, Label, Form, Button, Row, Col } from 'reactstrap';
-import classnames from 'classnames';
-import { Link } from 'react-router-dom'
+// import classnames from 'classnames';
+// import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { getStudents } from '../actions/students'
-import { postAssignment } from '../actions/assignments'
+import { postAssignment, getOneAssignment } from '../actions/assignments'
 
 import { CreateAssignmentStudent } from './CreateAssignmentStudent';
 
@@ -18,7 +18,7 @@ class CreateAssignment extends React.Component {
         this.state = {
             title: '',
             date: '',
-            grades: []
+            grades: {},
         }
     }
 
@@ -33,23 +33,35 @@ class CreateAssignment extends React.Component {
     }
 
 
-    handleGradeChange = (id, key, value) => {
-        const { grades } = this.state
-        const studGradeIdx = grades.findIndex(s => s.id === id)
-        
-        if (studGradeIdx === -1) {
-            this.setState({
-                grades: grades.concat({ id, [key]: value })
-            })
-        } else {
-            const newStudGrade = grades[studGradeIdx]
-            newStudGrade[key] = value
-    
-            this.setState({
-                grades: [ ...grades.slice(0, studGradeIdx), newStudGrade, ...grades.slice(studGradeIdx + 1) ]
-            })
-        }
+    handleStudentChange = (studentId, key, value) => {
+        this.setState({
+            grades: {
+                ...this.state.grades,
+                [studentId]: { ...this.state.grades[studentId], id:studentId, [key]: value }
+            }
+        })
     }
+
+
+    // handleGradeChange = (id, key, value) => {
+    //     const { grades } = this.state
+    //     const studGradeIdx = grades.findIndex(s => s.id === id)
+        
+    //     if (studGradeIdx === -1) {
+    //         this.setState({
+    //             grades: grades.concat({ id, [key]: value })
+    //         })
+    //     } else {
+    //         const newStudGrade = grades[studGradeIdx]
+    //         newStudGrade[key] = value
+    
+    //         this.setState({
+    //             grades: [ ...grades.slice(0, studGradeIdx), newStudGrade, ...grades.slice(studGradeIdx + 1) ]
+    //         })
+    //     }
+    // }
+
+
 
     handleSubmit = (event) => {
         event.preventDefault()
@@ -61,10 +73,20 @@ class CreateAssignment extends React.Component {
             students: this.state.grades
         }
 
+        console.log(this.state.grades)
+
         this.props.postAssignment(1, subjectId, assignment )
     }
 
+    
+    //     var gradesArr = Object.keys(this.state.grades).map(function(key) {
+    //         return this.state.grades[key];
+    //     }); 
+    
+
     render() {
+        
+        
         return (
             <Container>
                 <h1 id="NewAssignment">New Assignment</h1><br></br>
@@ -78,12 +100,14 @@ class CreateAssignment extends React.Component {
                         <Input type="date" name="date" id="date" value={this.state.date} onChange={this.handleChange}/>
                     </FormGroup>
                     {this.props.students.map(student => {
-                        const studentGrade = this.state.grades.find(s => s.id === student.id)
-                        console.log(studentGrade);
-                        
-                        return <CreateAssignmentStudent {...studentGrade} key={student.id} {...student} handleGradeChange={this.handleGradeChange} />
-                    })}
-
+                        return <CreateAssignmentStudent key={student.id} {...student}
+                            handleGradeChange={this.handleGradeChange} 
+                            handleStudentChange={this.handleStudentChange}
+                            grade={this.state.grades[student.id] && this.state.grades[student.id].grade || 0}
+                            comment={this.state.grades[student.id] && this.state.grades[student.id].comment || ''}
+                        />
+                    })
+                    }
                     <Button className='float-right' id="GradeSubmit">Submit</Button>
                 </Form>
             </Container>
@@ -92,17 +116,18 @@ class CreateAssignment extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {
+    return ({
         assignments: state.assignments,
         students: state.students,
         grades: state.grades
-    }
+    })
 }
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         getStudents,
-        postAssignment
+        postAssignment,
+        // updateAssignment
     }, dispatch)
 }
 
