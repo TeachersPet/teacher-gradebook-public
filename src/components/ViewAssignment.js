@@ -13,7 +13,7 @@ class ViewAssignment extends React.Component {
     }
   
   componentDidMount = () => {
-    this.props.getOneAssignment(1, 3, 1)
+    this.props.getOneAssignment(1, 1, 2)
   }
 
   render() {
