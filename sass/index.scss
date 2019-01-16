@@ -8,10 +8,19 @@ $Pearl: #E7DFC6;
 $BtnBlue: #41BBD9;
 
 
-#CreateAssign, #SignIn {
+#CreateAssign, #SignIn, #GradeSubmit {
   background-color: $BtnBlue;
   color: $FlashWhite;
 }
+
+.nav-link {
+  background-color: $Lapis;
+}
+
+#GradeSubmit {
+  margin: 30px;
+}
+
 
 .Login {
   background-color: $Black;
@@ -19,6 +28,7 @@ $BtnBlue: #41BBD9;
   padding: 10%;
   border-radius: 20px;
   color: $FlashWhite;
+  
 }
 
  .headerTitle {
@@ -34,10 +44,17 @@ $BtnBlue: #41BBD9;
 #NavFooter {
   height: 50px;
   position: absolute;
-  bottom: 0;
+  bottom: 100vh;
   width: 100%;
   background-color: $Lapis;
   opacity: 0.7;
+}
+
+#AssignTitle, #AssignDate {
+  color: $FlashWhite;
+}
+#NewAssignment {
+  color: $FlashWhite;
 }
 
 #editBtn {
@@ -62,6 +79,14 @@ border-radius: 20px;
 .SubjectCards {
 background-color: $FlashWhite;
 border-radius: 20px;
+}
+
+.StudentName, #AssName {
+  font-weight: 500;
+  background-color: $Black;
+  opacity: 0.95;
+  color: $BtnBlue;
+  border-radius: 5px;
 }
 
 body {

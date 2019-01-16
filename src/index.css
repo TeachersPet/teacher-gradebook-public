@@ -1,6 +1,12 @@
-#CreateAssign, #SignIn {
+#CreateAssign, #SignIn, #GradeSubmit {
   background-color: #41BBD9;
   color: #E9F1F7; }
+
+.nav-link {
+  background-color: #2274A5; }
+
+#GradeSubmit {
+  margin: 30px; }
 
 .Login {
   background-color: #131B23;
@@ -20,10 +26,16 @@
 #NavFooter {
   height: 50px;
   position: absolute;
-  bottom: 0;
+  bottom: 100vh;
   width: 100%;
   background-color: #2274A5;
   opacity: 0.7; }
+
+#AssignTitle, #AssignDate {
+  color: #E9F1F7; }
+
+#NewAssignment {
+  color: #E9F1F7; }
 
 #editBtn {
   margin: 5px;
@@ -44,13 +56,12 @@
   background-color: #E9F1F7;
   border-radius: 20px; }
 
-td, th {
-  color: black;
-  background-color: white;
-}
-.viewAssignmentHeader {
-  color: white;
-}
+.StudentName, #AssName {
+  font-weight: 500;
+  background-color: #131B23;
+  opacity: 0.95;
+  color: #41BBD9;
+  border-radius: 5px; }
 
 body {
   font-family: 'PT Sans', sans-serif;
