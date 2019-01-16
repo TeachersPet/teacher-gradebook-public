@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { getAssignments } from '../actions/assignments'
+import store from '../store'
 
 
 class SubjectsPage extends React.Component {
@@ -23,6 +24,7 @@ class SubjectsPage extends React.Component {
   } 
 
   render() {  
+    store.subscribe( () => console.log('state changed'))
     console.log(this.props.assignments)  
     const subjectId = this.props.location.search.split('=')[1]
     return (
@@ -42,7 +44,6 @@ class SubjectsPage extends React.Component {
               <PostedAssignment 
                 key={assignment.id} 
                 id={assignment.id}
-                deleteAssignment={this.props.deleteAssignment}
                 assignment_name={assignment.assignment_name}
                 date={assignment.date}
               />

@@ -37,7 +37,7 @@ export function deleteAssignment(teacherId, subjectId, assignmentId) {
       console.log(`DEEEELEEEEEEEEEEEEEEEEEEEETING ${assignmentId}`)
       axios.delete(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`)
       .then( () => {
-          dispatch(getAssignments())
+          dispatch(getAssignments(teacherId, subjectId))
       })
       .catch(() => console.log('could not delete assignment.'))
   }

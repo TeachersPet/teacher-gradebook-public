@@ -1,6 +1,9 @@
 import React from 'react'
 import { Card, CardBody, CardText, CardTitle } from 'reactstrap'
 import { Link } from 'react-router-dom'
+import { deleteAssignment } from '../actions/assignments'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 // import { prependOnceListener } from 'cluster';  (was causing errors/looks unused--do we need it?)
 
@@ -26,7 +29,23 @@ function PostedAssignment(props) {
   )
 }
 
-export default PostedAssignment
+
+const mapStateToProps = (state) => {
+  return {
+    assignments: state.assignments
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    deleteAssignment
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostedAssignment)
+
+
+// export default PostedAssignment
 
 
 
