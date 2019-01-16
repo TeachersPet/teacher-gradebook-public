@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { Row, Col, Table, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
-
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
 import { getOneStudentsAssignments } from '../actions/assignments'
 
 export class StudentAccordian extends Component {
 
+  //replace 1 with teacherId
   componentDidMount() {
     this.props.getOneStudentsAssignments(1, this.props.id, this.props.studentId)
   }
@@ -16,13 +15,13 @@ export class StudentAccordian extends Component {
   render() {
     const assignments = this.props.assignmentsPerSubject[this.props.id]
     let total
-    if(assignments) {
+    if (assignments) {
       total = assignments.reduce((acc, assignment) => acc + assignment.grade, 0)
-    } 
+    }
     return (
       <div className="card">
         <div className="card-header" id={this.props.id}>
-          <p className="mb-0">
+          <div className="mb-0">
             <Row className='align-items-center'>
               <Col md='8'>
                 <button className="btn btn-link" type="button" data-toggle="collapse" data-target={`#id${this.props.id}`} aria-expanded="true" aria-controls={`id${this.props.id}`}>
@@ -32,12 +31,12 @@ export class StudentAccordian extends Component {
               <Col >
                 <div>Average Grade: {
                   total ?
-                    total/assignments.length
+                    total / assignments.length
                     : 'No Grades'
                 }</div>
               </Col>
             </Row>
-          </p>
+          </div>
         </div>
 
         <div id={`id${this.props.id}`} className="collapse" aria-labelledby={this.props.id} data-parent="#accordion">
@@ -55,7 +54,7 @@ export class StudentAccordian extends Component {
 
                 assignments.map(assignment => {
                   return (
-                    <tbody>
+                    <tbody key={assignment.id}>
                       <tr>
                         <td>{assignment.assignment_name}</td>
                         <td>{assignment.grade}</td>

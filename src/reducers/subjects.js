@@ -1,6 +1,6 @@
-import { GET_SUBJECTS } from '../actions/subjects'
+import { GET_SUBJECTS, GET_ONE_SUBJECT } from '../actions/subjects'
 
-function subjects(state = [], action) {
+export function subjects(state = [], action) {
   switch (action.type) {
 
     case GET_SUBJECTS:
@@ -10,4 +10,13 @@ function subjects(state = [], action) {
   }
 }
 
-export default subjects
+export function subject(state = {}, action) {
+  switch (action.type) {
+
+    case GET_ONE_SUBJECT:
+      return action.payload
+
+    default: return state
+  }
+}
+

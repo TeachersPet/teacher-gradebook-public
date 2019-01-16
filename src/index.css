@@ -1,4 +1,4 @@
-#CreateAssign, #SignIn, #GradeSubmit {
+#CreateAssign, #SignIn, #GradeSubmit, #Back, #Edit {
   background-color: #41BBD9;
   color: #E9F1F7; }
 
@@ -36,6 +36,15 @@
 
 #NewAssignment {
   color: #E9F1F7; }
+
+#StudentName {
+  color: #E9F1F7; }
+
+.viewAssignmentHeader {
+  color: #E9F1F7; }
+
+.AssignmentTable {
+  background-color: #E9F1F7 !important; }
 
 #editBtn {
   margin: 5px;

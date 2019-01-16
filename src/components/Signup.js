@@ -1,23 +1,20 @@
 import React, { Component } from 'react'
 import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
   Container,
   Row,
-  Col,
-  Alert,
-  Input
+  Col
 } from 'reactstrap'
-import { Link } from 'react-router-dom'
 
 class Signup extends Component {
   constructor(props) {
     super(props)
     
     this.state = {
-
+      first_name: '',
+      last_name: '',
+      grade_level: '',
+      email: '',
+      password: ''
     }
   }
   render() {

@@ -11,12 +11,8 @@ import CreateAssignment from './components/CreateAssignment'
 import ViewAssignment from './components/ViewAssignment'
 import StudentPage from './components/StudentPage'
 import { Route, BrowserRouter } from 'react-router-dom'
-
-
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
-
 
 class App extends Component {
   render() {
@@ -30,7 +26,7 @@ class App extends Component {
             <Route exact path="/Gradebook" component={LandingPage} />
             <Route exact path="/Subjects/:id" component={Subjects} />
             <Route exact path="/CreateAssignment/:subjectId" component={CreateAssignment} />
-            <Route exact path="/viewassignment" component={ViewAssignment} />
+            <Route exact path="/viewassignment/:subjectId/:id" component={ViewAssignment} />
             <Route path="/Students/:id" component={StudentPage} />
           </div>
         </BrowserRouter>
@@ -39,8 +35,6 @@ class App extends Component {
   );
   }
 }
-
-
 
 const mapStateToProps = (state) => {
   return {

@@ -6,30 +6,25 @@ import { deleteAssignment } from '../actions/assignments'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-// import { prependOnceListener } from 'cluster';  (was causing errors/looks unused--do we need it?)
-
-
 function PostedAssignment(props) {
-  console.log(JSON.stringify(props))
-  console.log(`assignment name: ${props.assignment_name}, ID is ${props.id}`)
   return (
     <Card className="border">
       <CardBody className="SubjectCards">
-        <CardTitle > <Link to='/viewassignment'> <Moment format='MM/DD/YY'>{date}</Moment> </Link> </CardTitle>
+        <CardTitle > <Link to={`/viewassignment/${props.subjectId}/${props.id}`}>{props.assignment_name}</Link> </CardTitle>
         <CardText>
-          {props.assignment_name} 
+          <Moment format='MM/DD/YY'>{props.date}</Moment>
+          
           <span>
-            <a onClick={() => props.deleteAssignment(1,3, props.id)}size="sm" className="btn btn-outline-danger float-right" id="deleteBtn" ><i className="far fa-trash-alt"></i> Delete</a>
+            <button onClick={() => props.deleteAssignment(1, 3, props.id)} size="sm" className="btn btn-outline-danger float-right" id="deleteBtn" ><i className="far fa-trash-alt"></i> Delete</button>
           </span>
           <span>
-            <a size="sm" className="btn btn-outline-info float-right" id="editBtn"><i className="fas fa-pencil-alt"></i> Edit</a>
+            <button size="sm" className="btn btn-outline-info float-right" id="editBtn"><i className="fas fa-pencil-alt"></i> Edit</button>
           </span>
         </CardText>
       </CardBody>
     </Card>
   )
 }
-
 
 const mapStateToProps = (state) => {
   return {
@@ -45,12 +40,5 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostedAssignment)
 
-
-// export default PostedAssignment
-
-
-
-
-// function PostedAssignment({ assignment_name, date }) {
 
 

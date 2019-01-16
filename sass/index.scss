@@ -8,7 +8,7 @@ $Pearl: #E7DFC6;
 $BtnBlue: #41BBD9;
 
 
-#CreateAssign, #SignIn, #GradeSubmit {
+#CreateAssign, #SignIn, #GradeSubmit, #Back, #Edit {
   background-color: $BtnBlue;
   color: $FlashWhite;
 }
@@ -55,6 +55,18 @@ $BtnBlue: #41BBD9;
 }
 #NewAssignment {
   color: $FlashWhite;
+}
+
+#StudentName {
+  color: $FlashWhite;
+}
+
+.viewAssignmentHeader {
+  color: $FlashWhite;
+}
+
+.AssignmentTable {
+  background-color: $FlashWhite !important;
 }
 
 #editBtn {

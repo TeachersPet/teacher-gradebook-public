@@ -7,7 +7,6 @@ import {
   Container,
   Row,
   Col,
-  Alert,
   Input
 } from 'reactstrap'
 import { Link } from 'react-router-dom'
@@ -27,10 +26,7 @@ class Login extends Component {
         <Row>
           <Col md={{ size: 6, offset: 3 }}>
             <Form className="Login">
-           
-            {/* <h2>Login</h2> */}
               <FormGroup>
-              
                 <Label for='email'>Email</Label>
                 <Input type='email' name='email' id='email' value={this.state.email} onChange={event => this.setState({ email: event.target.value })} />
               </FormGroup>

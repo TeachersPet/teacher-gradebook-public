@@ -1,16 +1,12 @@
 import React from 'react';
-import { ListGroup, ListGroupItem, TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Container } from 'reactstrap';
+import { ListGroup, TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Container } from 'reactstrap';
 import classnames from 'classnames';
-import { Link } from 'react-router-dom'
-
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getSubjects } from '../actions/subjects'
 import { getStudents } from '../actions/students'
-
 import Subject from './Subject'
 import Student from './Student'
-
 
 class LandingPage extends React.Component {
   constructor(props) {
@@ -41,8 +37,7 @@ class LandingPage extends React.Component {
       <Container>
         <Nav tabs>
           <NavItem>
-            <NavLink className="SubjectLand"
-              className={classnames({ active: this.state.activeTab === '1' })}
+            <NavLink className={`SubjectLand ${classnames({ active: this.state.activeTab === '1' })}`}
               onClick={() => { this.toggle('1'); }}>
               <strong>Subjects</strong>
             </NavLink>
@@ -81,7 +76,6 @@ class LandingPage extends React.Component {
     )
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {

@@ -15,3 +15,17 @@ export function getStudents(teacherId) {
       })
   )
 }
+
+export const GET_ONE_STUDENT = 'GET_ONE_STUDENT'
+
+export function getOneStudent(teacherId, studentId) {
+  return dispatch => {
+    axios.get(`${BASE_URL}/teachers/${teacherId}/students/${studentId}`)
+    .then((response) => {
+      dispatch({
+        type: GET_ONE_STUDENT,
+        payload: response.data
+      })
+    })
+  }
+}
