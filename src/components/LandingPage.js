@@ -37,14 +37,14 @@ class LandingPage extends React.Component {
       <Container>
         <Nav tabs>
           <NavItem>
-            <NavLink
+            <NavLink className="SubjectLand"
               className={classnames({ active: this.state.activeTab === '1' })}
               onClick={() => { this.toggle('1'); }}>
               <strong>Subjects</strong>
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink
+            <NavLink id="StudentLand"
               className={classnames({ active: this.state.activeTab === '2' })}
               onClick={() => { this.toggle('2'); }}>
               <strong>Students</strong>

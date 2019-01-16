@@ -23,7 +23,7 @@ class Login extends Component {
   }
   render() {
     return (
-      <Container >
+      <Container>
         <Row>
           <Col md={{ size: 6, offset: 3 }}>
             <Form className="Login">

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormGroup, Input, Label, Row, Col } from 'reactstrap';
+import { FormGroup, Input, Label, Row, Col, Container } from 'reactstrap';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -8,9 +8,10 @@ import { addGrades } from '../actions/grades'
 
 export function CreateAssignmentStudent({ id, first_name, last_name, grade = 0, comment = '', handleGradeChange }) {
   return (
+    <Container>
     <FormGroup >
       <Row>
-        <Col><Label for="grade">{first_name} {last_name}</Label></Col>
+        <Col className="StudentName" ><Label id="AssName" for="grade">{first_name} {last_name}</Label></Col>
         <Col>
           <Input type="select" name="grade" id="grade" value={grade} onChange={(e) => handleGradeChange(id, 'grade', e.target.value)}>
             <option>0</option>
@@ -26,6 +27,7 @@ export function CreateAssignmentStudent({ id, first_name, last_name, grade = 0, 
         </Col>
       </Row>
     </FormGroup>
+    </Container>
   )
 }
 

@@ -65,14 +65,14 @@ class CreateAssignment extends React.Component {
     render() {
         return (
             <Container>
-                <h1>New Assignment:</h1><br></br>
+                <h1 id="NewAssignment">New Assignment</h1><br></br>
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
-                        <Label for="title">Title</Label>
+                        <Label for="title"><h3 id="AssignTitle">Title</h3></Label>
                         <Input type="text" name="title" id="title" value={this.state.title} onChange={this.handleChange}/>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="date">Date</Label>
+                        <Label for="date"><h3 id="AssignDate">Date</h3></Label>
                         <Input type="date" name="date" id="date" value={this.state.date} onChange={this.handleChange}/>
                     </FormGroup>
                     {this.props.students.map(student => {
@@ -82,7 +82,7 @@ class CreateAssignment extends React.Component {
                         return <CreateAssignmentStudent {...studentGrade} key={student.id} {...student} handleGradeChange={this.handleGradeChange} />
                     })}
 
-                    <Button className='float-right'>Submit</Button>
+                    <Button className='float-right' id="GradeSubmit">Submit</Button>
                 </Form>
             </Container>
         )
