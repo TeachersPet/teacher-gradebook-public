@@ -1,64 +1,19 @@
 import React from 'react';
 import { Container, Table, Button, Row, Col } from 'reactstrap';
-import classnames from 'classnames';
 import { Link } from 'react-router-dom'
-
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import CreateAssignment from './CreateAssignment';
+import {bindActionCreators} from 'redux'
+import Moment from 'react-moment'
+import {getOneAssignment} from '../actions/assignments'
+
 
 class ViewAssignment extends React.Component {
     constructor(props) {
         super(props);
     }
-    render() {
-        return (
-            <Container>
-                <Row>
-                    <Col><h1>Frog quiz #4</h1> </Col>
-                    <Col><div className='float-right'>
-                        <Link to='/createassignment'><Button>All Assignments</Button></Link></div></Col>
-                </Row>
-                <h4>10/12/18</h4>
-
-                <Table>
-                    <thead>
-                        <tr>
-                            <th>Student</th>
-                            <th>Grade</th>
-                            <th>Comments</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Zelda  </td>
-                            <td>:)</td>
-                            <td>master of the frogs!</td>>
-                    <td><Button>Edit</Button></td>
-                        </tr>
-                        <tr>
-
-                            <td>Nap Lajoie</td>
-                            <td>:(</td>
-                            <td>Overdeveloped sense of frog fairness</td>
-                            <td><Button>Edit</Button></td>
-                        </tr>
-                        <tr>
-
-                            <td>Bobby</td>
-                            <td>:|</td>
-                            <td>Should have voted for presentations</td>
-                            <td><Button>Edit</Button></td>
-                        </tr>
-                    </tbody>
-                </Table>
-            </Container>
-        )
-    }
-}
-
+  
   render() {
-    console.log( this.props.assignments[0]['assignment_name'])
+    // console.log( this.props.assignments[0]['assignment_name'])
     return (
     <Container>
       <Row>
@@ -131,7 +86,7 @@ const mapStateToProps = (state) => {
   
   const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-		getOneAssignment, getAssignments
+		getOneAssignment
     
   }, dispatch)
   }

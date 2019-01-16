@@ -8,6 +8,7 @@ import Signup from './components/Signup'
 import LandingPage from './components/LandingPage'
 import Subjects from './components/Subjects';
 import CreateAssignment from './components/CreateAssignment'
+import ViewAssignment from './components/ViewAssignment'
 import StudentPage from './components/StudentPage'
 import { Route, BrowserRouter } from 'react-router-dom'
 
