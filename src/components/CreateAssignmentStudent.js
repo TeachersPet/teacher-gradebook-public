@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormGroup, Input, Label, Row, Col, Container } from 'reactstrap';
 
-export function CreateAssignmentStudent({ id, first_name, last_name, grade = 0, comment = '', handleGradeChange }) {
+export function CreateAssignmentStudent({ id, first_name, last_name, grade = 0, comment = '', handleGradeChange, handleStudentChange }) {
   return (
     <Container>
       <FormGroup >
@@ -26,4 +26,17 @@ export function CreateAssignmentStudent({ id, first_name, last_name, grade = 0, 
   )
 }
 
+const mapStateToProps = (state) => {
+  return {
+    grades: state.grades
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    addGrades
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateAssignmentStudent)
 
