@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { getAssignments } from '../actions/assignments'
+import store from '../store'
 
 
 class SubjectsPage extends React.Component {
@@ -19,7 +20,6 @@ class SubjectsPage extends React.Component {
   }
   
   render() {
-    console.log(this.props)
     const subjectId = this.props.match.params.id
     return (
       <div>
