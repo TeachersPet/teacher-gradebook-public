@@ -1,16 +1,13 @@
 import axios from 'axios'
 
-
 export const GET_ASSIGNMENTS = 'GET_ASSIGNMENTS'
 
 const BASE_URL = process.env.REACT_APP_API_URL
 
 export function getAssignments(teacherId, subjectId) {
-  console.log('starting to get aLL assignments')
   return dispatch => (
     axios.get(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments`)
       .then((response) => {
-        console.log(`dispatching aLL assignments`)
         dispatch({
           type: GET_ASSIGNMENTS,
           payload: response.data

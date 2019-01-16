@@ -19,7 +19,7 @@ class ViewAssignment extends React.Component {
   }
 
   render() {
-	
+    console.log( this.props.assignments[0]['assignment_name'])
     return (
     <Container>
       <Row>
