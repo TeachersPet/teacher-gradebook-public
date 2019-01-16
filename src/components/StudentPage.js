@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container } from 'reactstrap'
+import { Link } from 'react-router-dom'
+import { Container, Row, Col, Button } from 'reactstrap'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import SubjectAccordian from './SubjectAccordian'
@@ -20,9 +21,16 @@ export class StudentPage extends Component {
 
     return (
       <Container>
-        <h1 id="StudentName">{this.props.student.first_name} {this.props.student.last_name}</h1>
+        <Row>
+          <h1 id="StudentName">{this.props.student.first_name} {this.props.student.last_name}</h1>
+          <Col >
+            <Link to={`/gradebook`}>
+              <Button className='float-right' id='Back'>Back to Students</Button>
+            </Link>
+          </Col>
+        </Row>
         <div className="accordion" id="accordion">
-          {this.props.subjects.map ( subject => <SubjectAccordian key={subject.id} {...subject} studentId={studentId}/>)}
+          {this.props.subjects.map(subject => <SubjectAccordian key={subject.id} {...subject} studentId={studentId} />)}
         </div>
       </Container>
     )

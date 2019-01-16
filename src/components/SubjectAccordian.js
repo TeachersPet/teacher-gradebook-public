@@ -31,7 +31,7 @@ export class StudentAccordian extends Component {
               <Col >
                 <div>Average Grade: {
                   total ?
-                    total / assignments.length
+                    (total / assignments.length).toFixed(2)
                     : 'No Grades'
                 }</div>
               </Col>

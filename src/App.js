@@ -23,11 +23,11 @@ class App extends Component {
           <NavHeader />
             <Route exact path="/" component={Login} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/Gradebook" component={LandingPage} />
-            <Route exact path="/Subjects/:id" component={Subjects} />
-            <Route exact path="/CreateAssignment/:subjectId" component={CreateAssignment} />
+            <Route exact path="/gradebook" component={LandingPage} />
+            <Route exact path="/subjects/:id" component={Subjects} />
+            <Route exact path="/createAssignment/:subjectId" component={CreateAssignment} />
             <Route exact path="/viewassignment/:subjectId/:id" component={ViewAssignment} />
-            <Route path="/Students/:id" component={StudentPage} />
+            <Route path="/students/:id" component={StudentPage} />
           </div>
         </BrowserRouter>
         <NavFooter />
