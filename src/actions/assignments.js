@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-export const GET_ASSIGNMENTS = 'GET_ASSIGNMENTS'
-
 const BASE_URL = process.env.REACT_APP_API_URL
+
+export const GET_ASSIGNMENTS = 'GET_ASSIGNMENTS'
 
 export function getAssignments(teacherId, subjectId) {
   return dispatch => (
@@ -15,6 +15,22 @@ export function getAssignments(teacherId, subjectId) {
       })
       .catch(() => console.log('could not get assignments'))
   )
+}
+
+export const GET_ONE_STUDENTS_ASSIGNMENTS = 'GET_ONE_STUDENTS_ASSIGNMENTS'
+
+export function getOneStudentsAssignments(teacherId, subjectId, studentId) {
+  return dispatch => {
+    axios.get(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments?student=${studentId}`)
+    .then( (response) => {
+      dispatch({
+        type: GET_ONE_STUDENTS_ASSIGNMENTS,
+        payload: response.data,
+        subjectId
+      })
+    })
+    .catch(() => console.log('could not get assignments'))
+  }
 }
 
 export const GET_ONE_ASSIGNMENT = 'GET_ONE_ASSIGNMENT'

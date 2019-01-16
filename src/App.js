@@ -28,10 +28,10 @@ class App extends Component {
             <Route exact path="/" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/Gradebook" component={LandingPage} />
-            <Route exact path="/Subjects" component={Subjects} />
-            <Route exact path="/CreateAssignment" component={CreateAssignment} />
+            <Route exact path="/Subjects/:id" component={Subjects} />
+            <Route exact path="/CreateAssignment/:subjectId" component={CreateAssignment} />
             <Route exact path="/viewassignment" component={ViewAssignment} />
-            <Route path="/Students" component={StudentPage} />
+            <Route path="/Students/:id" component={StudentPage} />
           </div>
         </BrowserRouter>
         <NavFooter />

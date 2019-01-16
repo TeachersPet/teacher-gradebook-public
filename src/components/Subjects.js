@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Container, Col, Row } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import { deleteAssignment } from '../actions/assignments'
-import  PostedAssignment  from './PostedAssignment'
+import PostedAssignment from './PostedAssignment'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -11,24 +11,22 @@ import { getAssignments } from '../actions/assignments'
 
 
 class SubjectsPage extends React.Component {
-  constructor(props) {
-  super(props);
-  }
 
-  componentDidMount(){
-    const subjectId = this.props.location.search.split('=')[1]
+  componentDidMount() {
+    const subjectId = this.props.match.params.id
     this.props.getAssignments(1, subjectId)
     //need to replace 1 with teacherId once we are authenticated
-  } 
-
-  render() {    
-    const subjectId = this.props.location.search.split('=')[1]
+  }
+  
+  render() {
+    console.log(this.props)
+    const subjectId = this.props.match.params.id
     return (
       <div>
         <Container>
           <Row>
             <Col sm="12" md={{ size: 6, offset: 3 }}>
-              <Link to={`/createassignment?subjectId=${subjectId}`}>
+              <Link to={`/createassignment/${subjectId}`}>
                 <Button id="CreateAssign" size="lg" block><i className="fas fa-folder-plus"></i> Create New Assignment</Button>
               </Link>
             </Col>
@@ -36,7 +34,7 @@ class SubjectsPage extends React.Component {
         </Container>
 
         <Container>
-             {this.props.assignments.map(assignment => <PostedAssignment key={assignment.id} {...assignment}/>) }
+          {this.props.assignments.map(assignment => <PostedAssignment key={assignment.id} {...assignment} />)}
         </Container>
       </div>
     )
@@ -51,8 +49,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-  deleteAssignment,
-
+    deleteAssignment,
     getAssignments
   }, dispatch)
 }

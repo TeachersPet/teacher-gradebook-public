@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, CardBody, CardText, CardTitle } from 'reactstrap'
 import { Link } from 'react-router-dom'
+import Moment from 'react-moment'
 import { deleteAssignment } from '../actions/assignments'
 // import { prependOnceListener } from 'cluster';  (was causing errors/looks unused--do we need it?)
 
@@ -9,7 +10,7 @@ function PostedAssignment({ assignment_name, date }) {
   return (
     <Card className="border">
       <CardBody className="SubjectCards">
-        <CardTitle > <Link to='/viewassignment'>{date} </Link> </CardTitle>
+        <CardTitle > <Link to='/viewassignment'> <Moment format='MM/DD/YY'>{date}</Moment> </Link> </CardTitle>
         <CardText>
           {assignment_name}
           <span>

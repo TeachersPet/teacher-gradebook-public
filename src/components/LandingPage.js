@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getSubjects } from '../actions/subjects'
+import { getStudents } from '../actions/students'
 
 import Subject from './Subject'
+import Student from './Student'
 
 
 class LandingPage extends React.Component {
@@ -20,8 +22,10 @@ class LandingPage extends React.Component {
     };
   }
 
+  //replace 1 with teacherId when we have auth
   componentDidMount() {
-    this.props.getSubjects()
+    this.props.getSubjects(1)
+    this.props.getStudents(1)
   }
 
   toggle(tab) {
@@ -67,9 +71,7 @@ class LandingPage extends React.Component {
             <Row>
               <Col sm="12">
                 <ListGroup>
-                  <Link to="/Students">
-                    <ListGroupItem action> Thurman </ListGroupItem>
-                  </Link>
+                  { this.props.students.map ( student => <Student key={student.id} {...student}/>)}
                 </ListGroup>
               </Col>
             </Row>
@@ -83,14 +85,15 @@ class LandingPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    subjects: state.subjects
-    // students: state.students
+    subjects: state.subjects,
+    students: state.students
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    getSubjects
+    getSubjects,
+    getStudents
   }, dispatch)
 }
 
