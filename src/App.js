@@ -8,6 +8,7 @@ import Signup from './components/Signup'
 import LandingPage from './components/LandingPage'
 import Subjects from './components/Subjects';
 import CreateAssignment from './components/CreateAssignment'
+import ViewAssignment from './components/ViewAssignment'
 import StudentPage from './components/StudentPage'
 import { Route, BrowserRouter } from 'react-router-dom'
 
@@ -29,12 +30,13 @@ class App extends Component {
             <Route exact path="/Gradebook" component={LandingPage} />
             <Route exact path="/Subjects" component={Subjects} />
             <Route exact path="/CreateAssignment" component={CreateAssignment} />
+            <Route exact path="/viewassignment" component={ViewAssignment} />
             <Route path="/Students" component={StudentPage} />
           </div>
         </BrowserRouter>
         <NavFooter />
       </div>
-    );
+  );
   }
 }
 
@@ -42,8 +44,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    assignments: state.assignments,
-    students: state.students
+  assignments: state.assignments,
+  students: state.students
   }
 }
 
