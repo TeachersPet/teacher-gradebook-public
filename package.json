@@ -31,7 +31,11 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+<<<<<<< HEAD
   "devDependencies": {
  
   }
+=======
+  "devDependencies": {}
+>>>>>>> f12bef7241346c344b0839745b7228d6581090b5
 }

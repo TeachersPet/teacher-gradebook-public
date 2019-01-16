@@ -42,3 +42,14 @@ export function deleteAssignment(teacherId, subjectId, assignmentId) {
   }
 }
 
+export function postAssignment(teacherId, subjectId, newAssignment) {
+  console.log(teacherId)
+  return dispatch => {
+    axios.post(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments`, newAssignment)
+      .then(() => {
+        dispatch(
+          getAssignments(teacherId, subjectId)
+        )
+      })
+  }
+}

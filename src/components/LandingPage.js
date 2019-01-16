@@ -1,11 +1,13 @@
 import React from 'react';
-import { ListGroup, ListGroupItem, TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
+import { ListGroup, ListGroupItem, TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Container } from 'reactstrap';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { getSubjects } from '../actions/subjects'
 
+import Subject from './Subject'
 
 
 class LandingPage extends React.Component {
@@ -18,6 +20,10 @@ class LandingPage extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.getSubjects()
+  }
+
   toggle(tab) {
     if (this.state.activeTab !== tab) {
       this.setState({
@@ -25,9 +31,10 @@ class LandingPage extends React.Component {
       });
     }
   }
+
   render() {
     return (
-      <div>
+      <Container>
         <Nav tabs>
           <NavItem>
             <NavLink
@@ -49,12 +56,7 @@ class LandingPage extends React.Component {
             <Row>
               <Col sm="12">
                 <ListGroup>
-                  <Link to="/Subjects">
-                    <ListGroupItem action> Social Studies </ListGroupItem>
-                    <ListGroupItem action> History </ListGroupItem>
-                    <ListGroupItem action> Math </ListGroupItem>
-                    <ListGroupItem action> Science </ListGroupItem>
-                  </Link>
+                  { this.props.subjects.map ( subject => <Subject key={subject.id} {...subject}/>)}
                 </ListGroup>
               </Col>
             </Row>
@@ -65,7 +67,6 @@ class LandingPage extends React.Component {
             <Row>
               <Col sm="12">
                 <ListGroup>
-                  {/* MAP TO STUDENTS HERE */}
                   <Link to="/Students">
                     <ListGroupItem action> Thurman </ListGroupItem>
                   </Link>
@@ -74,7 +75,7 @@ class LandingPage extends React.Component {
             </Row>
           </TabPane>
         </TabContent>
-      </div>
+      </Container>
     )
   }
 }
@@ -82,14 +83,14 @@ class LandingPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    assignments: state.assignments,
-    students: state.students
+    subjects: state.subjects
+    // students: state.students
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    
+    getSubjects
   }, dispatch)
 }
 

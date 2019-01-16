@@ -6,139 +6,104 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
+import { getStudents } from '../actions/students'
+import { postAssignment } from '../actions/assignments'
+
+import { CreateAssignmentStudent } from './CreateAssignmentStudent';
+
 class CreateAssignment extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <Container>
-        <h1>New Assignment:</h1><br></br>
-        <Form>
-          <FormGroup>
-            <Label for="exampleEmail">{this.props.name}</Label>
-            <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
-          </FormGroup>
-          <FormGroup>
-            <Label for="examplePassword">Description</Label>
-            <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
-          </FormGroup>
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            title: '',
+            date: '',
+            grades: []
+        }
+    }
+
+    componentDidMount() {
+        this.props.getStudents()
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name] : event.target.value
+        })
+    }
 
 
-          <FormGroup>
-            <Row>
+    handleGradeChange = (id, key, value) => {
+        const { grades } = this.state
+        const studGradeIdx = grades.findIndex(s => s.id === id)
+        
+        if (studGradeIdx === -1) {
+            this.setState({
+                grades: grades.concat({ id, [key]: value })
+            })
+        } else {
+            const newStudGrade = grades[studGradeIdx]
+            newStudGrade[key] = value
+    
+            this.setState({
+                grades: [ ...grades.slice(0, studGradeIdx), newStudGrade, ...grades.slice(studGradeIdx + 1) ]
+            })
+        }
+    }
 
-              <Col><Label for="exampleSelect">Thurmon</Label></Col>
-              <Col>
-                <Input type="select" name="select" id="exampleSelect">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </Input>
-              </Col>
+    handleSubmit = (event) => {
+        event.preventDefault()
+        const subjectId = this.props.location.search.split('=')[1]
 
-              <Col>
-                <Input placeholder='Comments'></Input>
-              </Col>
-            </Row>
-          </FormGroup>
+        let assignment = {
+            assignment_name: this.state.title,
+            date: this.state.date,
+            students: this.state.grades
+        }
 
-          <FormGroup>
-            <Row>
+        this.props.postAssignment(1, subjectId, assignment )
+    }
 
-              <Col><Label for="exampleSelect">Thurmon</Label></Col>
-              <Col>
-                <Input type="select" name="select" id="exampleSelect">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </Input>
-              </Col>
+    render() {
+        return (
+            <Container>
+                <h1>New Assignment:</h1><br></br>
+                <Form onSubmit={this.handleSubmit}>
+                    <FormGroup>
+                        <Label for="title">Title</Label>
+                        <Input type="text" name="title" id="title" value={this.state.title} onChange={this.handleChange}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="date">Date</Label>
+                        <Input type="date" name="date" id="date" value={this.state.date} onChange={this.handleChange}/>
+                    </FormGroup>
+                    {this.props.students.map(student => {
+                        const studentGrade = this.state.grades.find(s => s.id === student.id)
+                        console.log(studentGrade);
+                        
+                        return <CreateAssignmentStudent {...studentGrade} key={student.id} {...student} handleGradeChange={this.handleGradeChange} />
+                    })}
 
-              <Col>
-                <Input placeholder='Comments'></Input>
-              </Col>
-            </Row>
-          </FormGroup>
-          <FormGroup>
-            <Row>
-
-              <Col><Label for="exampleSelect">Thurmon</Label></Col>
-              <Col>
-                <Input type="select" name="select" id="exampleSelect">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </Input>
-              </Col>
-
-              <Col>
-                <Input placeholder='Comments'></Input>
-              </Col>
-            </Row>
-          </FormGroup>
-          <FormGroup>
-            <Row>
-
-              <Col><Label for="exampleSelect">Thurmon</Label></Col>
-              <Col>
-                <Input type="select" name="select" id="exampleSelect">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </Input>
-              </Col>
-
-              <Col>
-                <Input placeholder='Comments'></Input>
-              </Col>
-            </Row>
-          </FormGroup>
-          <FormGroup>
-            <Row>
-
-              <Col><Label for="exampleSelect">Thurmon</Label></Col>
-              <Col className='grade-input'>
-                <Input type="select" name="select" id="exampleSelect">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </Input>
-              </Col>
-
-              <Col>
-                <Input placeholder='Comments'></Input>
-              </Col>
-            </Row>
-          </FormGroup>
-
-          <Button className='float-right'>Submit</Button>
-        </Form>
-      </Container>
-    )
-  }
+                    <Button className='float-right'>Submit</Button>
+                </Form>
+            </Container>
+        )
+    }
 }
 
 const mapStateToProps = (state) => {
-  return {
-    assignments: state.assignments,
-    students: state.students
-  }
+    return {
+        assignments: state.assignments,
+        students: state.students,
+        grades: state.grades
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-  }, dispatch)
+    return bindActionCreators({
+        getStudents,
+        postAssignment
+    }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateAssignment)
