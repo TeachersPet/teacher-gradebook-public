@@ -17,7 +17,7 @@ function PostedAssignment(props) {
           
           {/* Change 1 to teacherId when we have auth */}
           <span>
-            <button onClick={() => props.deleteAssignment(1, props.subjectId, props.id)}size="sm" className="btn btn-outline-danger float-right" id="deleteBtn" ><i className="far fa-trash-alt"></i> Delete</button>
+            <button onClick={() => props.deleteAssignment(1, props.subjectId, props.id)} size="sm" className="btn btn-outline-danger float-right" id="deleteBtn" ><i className="far fa-trash-alt"></i> Delete</button>
           </span>
           <Link to={`/createassignment/${props.subjectId}/${props.id}`}>
             <button size="sm" className="btn btn-outline-info float-right" id="editBtn"><i className="fas fa-pencil-alt"></i> Edit</button>
