@@ -1,12 +1,12 @@
 import React from 'react'
 import { FormGroup, Input, Label, Row, Col, Container } from 'reactstrap';
 
-export function CreateAssignmentStudent({ id, first_name, last_name, grade = 0, comment = '', handleStudentChange }) {
+export function CreateAssignmentStudent({ id, first_name, last_name, grade = 0, comment = '', handleStudentChange, studentId }) {
   return (
     <Container>
       <FormGroup >
         <Row>
-          <Col className='StudentName' ><Label id='AssName' for='grade'>{first_name} {last_name}</Label></Col>
+          <Col className='StudentName' ><Label id={id === studentId ? 'Highlighted' : 'AssName'} for='grade'>{first_name} {last_name}</Label></Col>
           <Col>
             <Input type='select' name='grade' id='grade' value={grade} onChange={(e) => handleStudentChange(id, 'grade', e.target.value)}>
               <option>0</option>
@@ -18,7 +18,7 @@ export function CreateAssignmentStudent({ id, first_name, last_name, grade = 0, 
           </Col>
 
           <Col>
-            <Input id='comment' placeholder='Comments' value={comment} onChange={(e) => handleStudentChange(id, 'comment', e.target.value)}></Input>
+            <Input autoFocus={id === studentId} id='comment' placeholder='Comments' value={comment} onChange={(e) => handleStudentChange(id, 'comment', e.target.value)}></Input>
           </Col>
         </Row>
       </FormGroup>

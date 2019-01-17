@@ -23,11 +23,21 @@ class ViewAssignment extends React.Component {
 
     return (
       <Container>
-        <Row>
-          {assignment ? <h1 className='viewAssignmentHeader'>{assignment.assignment_name}</h1> : null}
-          <Col><div className='float-right'>
-            <Link to={`/subjects/${subjectId}`}><Button id='Back'>{`Back to ${this.props.subject.subject_name}`}</Button></Link></div></Col>
-        </Row>
+        {assignment ?
+          <Row>
+            <h1 className='viewAssignmentHeader'>{assignment.assignment_name}</h1> : null}
+          <Col>
+              <div className='float-right'>
+                <Row>
+                  <Link to={`/createassignment/${subjectId}/${assignment.assignment_id}`}><Button id='EditAsn'>Edit Assignment</Button></Link>
+                  <Link to={`/subjects/${subjectId}`}><Button id='Back'>{`Back to ${this.props.subject.subject_name}`}</Button></Link>
+                </Row>
+              </div>
+            </Col>
+          </Row>
+          :
+          null
+        }
 
         {assignment ? <h4 className='viewAssignmentHeader'><Moment format='MM/DD/YY'>{assignment.date}</Moment></h4> : null}
 
@@ -40,7 +50,7 @@ class ViewAssignment extends React.Component {
               <th></th>
             </tr>
           </thead>
-          
+
           <tbody>
             {
               this.props.assignments.map(asn => {
@@ -49,7 +59,7 @@ class ViewAssignment extends React.Component {
                     <td>{asn.first_name + ' ' + asn.last_name}</td>
                     <td>{asn.grade}</td>
                     <td>{asn.comment}</td>
-                    <td><Link to={`/createassignment/${subjectId}/${asn.assignment_id}`}><Button id='Edit'>Edit</Button></Link></td>
+                    <td><Link to={`/createassignment/${subjectId}/${asn.assignment_id}/student/${asn.student_id}`}><Button id='Edit'>Edit</Button></Link></td>
                   </tr>
                 )
               })

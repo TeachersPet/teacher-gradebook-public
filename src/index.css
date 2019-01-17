@@ -16,9 +16,12 @@
   height: 0;
   visibility: hidden; }
 
-#CreateAssign, #SignIn, #GradeSubmit, #Back, #Edit {
+#CreateAssign, #SignIn, #GradeSubmit, #Back, #Edit, #EditAsn {
   background-color: #41BBD9;
   color: #E9F1F7; }
+
+#EditAsn {
+  margin-right: 10px; }
 
 .nav-link {
   background-color: #2274A5; }
@@ -95,6 +98,13 @@
   background-color: #131B23;
   opacity: 0.95;
   color: #41BBD9;
+  border-radius: 5px; }
+
+#Highlighted {
+  font-weight: 500;
+  background-color: #131B23;
+  opacity: 0.95;
+  color: #E7DFC6;
   border-radius: 5px; }
 
 body {

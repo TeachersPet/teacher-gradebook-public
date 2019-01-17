@@ -28,18 +28,17 @@ class CreateAssignment extends React.Component {
     if (editingId) this.props.getOneAssignment(1, subjectId, editingId)
   }
 
-  //when can I access to the updated this.props.assignments? componentWillReceiveProps?
-  componentWillReceiveProps() {
-    const editingId = this.props.match.params.editingId
-    if (this.props.assignments.length && editingId) {
+  componentWillReceiveProps(props) {
+    const editingId = props.match.params.editingId
+    if (props.assignments.length && editingId) {
       const studentsObj = {}
-      this.props.assignments.forEach(assignment => {
+      props.assignments.forEach(assignment => {
         studentsObj[assignment.student_id] = { id: assignment.student_id, grade: assignment.grade, comment: assignment.comment }
       })
 
       this.setState({
-        title: this.props.assignments[0].assignment_name,
-        date: moment(this.props.assignments[0].date).format('YYYY-MM-DD'),
+        title: props.assignments[0].assignment_name,
+        date: moment(props.assignments[0].date).format('YYYY-MM-DD'),
         grades: studentsObj
       })
     }
@@ -102,6 +101,7 @@ class CreateAssignment extends React.Component {
               handleStudentChange={this.handleStudentChange}
               grade={this.state.grades[student.id] ? this.state.grades[student.id].grade : 0}
               comment={this.state.grades[student.id] ? this.state.grades[student.id].comment : ''}
+              studentId={parseInt(this.props.match.params.studentId)}
             />
           })
           }

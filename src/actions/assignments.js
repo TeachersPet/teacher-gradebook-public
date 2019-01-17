@@ -69,9 +69,9 @@ export function postAssignment(teacherId, subjectId, newAssignment) {
   }
 }
 
-export function updateAssignment(teacherId, subjectId, assignmentId) {
-  return(dispatch) => {
-    axios.put(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`)
+export function updateAssignment(teacherId, subjectId, assignmentId, editedAssignment) {
+  return dispatch => {
+    axios.put(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`, editedAssignment)
       .then(()=> { 
         dispatch(getAssignments(teacherId, subjectId)
       )

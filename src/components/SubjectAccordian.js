@@ -60,7 +60,7 @@ export class StudentAccordian extends Component {
                         <td>{assignment.grade}</td>
                         <td>{assignment.comment}</td>
                         <td>
-                          <Link to={`/createassignment/${this.props.id}/${assignment.assignment_id}`}>
+                          <Link to={`/createassignment/${this.props.id}/${assignment.assignment_id}/student/${this.props.studentId}`}>
                             <Button id='Edit'>Edit</Button>
                           </Link>
                         </td>
