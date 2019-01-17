@@ -1,8 +1,6 @@
 import axios from 'axios'
 import {attachHeader} from './assignments'
 
-
-
 export const GET_STUDENTS = 'GET_STUDENTS'
 
 const BASE_URL = process.env.REACT_APP_API_URL
