@@ -3,7 +3,7 @@
 
 ![Alt text](/Screen_Shots/Edit_SS.png)
 
-![Alt text](/Screen_Shot/Login_SS.png)
+![Alt text](/Screen_Shots/Login_SS.png)
 
 ## To Install
   * Download from GitHub
