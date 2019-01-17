@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Form, FormGroup, Label, Container, Row, Col, Input, Alert } from 'reactstrap'
 import { Link } from 'react-router-dom'
-import {setAuthentication} from '../actions/authentication'
+import { setAuthentication } from '../actions/authentication'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import request from '../utils/request'
@@ -17,26 +17,27 @@ class Login extends Component {
       showErrorMessage: false
     }
   }
-  
+
   handleSignIn = event => {
     event.preventDefault()
 
-    request('/login','post', {
+    request('/login', 'post', {
       email: this.state.email,
-      password: this.state.password })
-    .then(response => {
-      this.setState({ showErrorMessage: false })
-      
-      localStorage.setItem('token', response.data.token)
-      return request('/login')
+      password: this.state.password
     })
-    .then(response => {
-      this.props.setAuthentication(response.data.id)
-      this.props.history.push('/Gradebook')
-    })
-    .catch(error => {
-      this.setState({showErrorMessage: true})
-    })
+      .then(response => {
+        this.setState({ showErrorMessage: false })
+
+        localStorage.setItem('token', response.data.token)
+        return request('/login')
+      })
+      .then(response => {
+        this.props.setAuthentication(response.data.id)
+        this.props.history.push('/Gradebook/1')
+      })
+      .catch(error => {
+        this.setState({ showErrorMessage: true })
+      })
   }
 
   render() {
@@ -53,26 +54,22 @@ class Login extends Component {
                 <Label for='password'>Password</Label>
                 <Input type='password' name='password' id='password' value={this.state.password} onChange={event => this.setState({ password: event.target.value })} />
               </FormGroup>
-              
-                
-                <Row>
+
+              <Row>
                 <Col md='2'>
-                <Button className='mr-3' type='submit' color='primary'>
-                  Login
+                  <Button className='mr-3' type='submit' color='primary'>
+                    Login
                 </Button>
-               
+
                 </Col>
-                {
-               
-               this.state.showErrorMessage ? 
-               <Col md='10'>
-                <Alert className='login-fail' color='danger'>Incorrect email or password.</Alert>
-                </Col>
-                : null
-                
+                {this.state.showErrorMessage ?
+                  <Col md='10'>
+                    <Alert className='login-fail' color='danger'>Incorrect email or password.</Alert>
+                  </Col>
+                  : null
                 }
               </Row>
-                <Link to='/Signup'>Not a member? Sign Up!</Link>
+              <Link to='/Signup'>Not a member? Sign Up!</Link>
             </Form>
           </Col>
         </Row>

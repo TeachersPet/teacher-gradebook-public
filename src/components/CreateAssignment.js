@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, FormGroup, Input, Label, Form, Button } from 'reactstrap';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Link } from 'react-router-dom'
 import { getStudents } from '../actions/students'
 import { postAssignment, updateAssignment, getOneAssignment } from '../actions/assignments'
 import { getOneSubject } from '../actions/subjects'
@@ -20,13 +19,13 @@ class CreateAssignment extends React.Component {
         }
     }
 
-    //replace 1 with teacherId varibable
     componentDidMount() {
         const subjectId = this.props.match.params.subjectId
         const editingId = this.props.match.params.editingId
-        this.props.getStudents(1)
-        this.props.getOneSubject(1, subjectId)
-        if (editingId) this.props.getOneAssignment(1, subjectId, editingId)
+        const teacherId = this.props.authentication.user
+        this.props.getStudents(teacherId)
+        this.props.getOneSubject(teacherId, subjectId)
+        if (editingId) this.props.getOneAssignment(teacherId, subjectId, editingId)
     }
 
     componentWillReceiveProps(props) {
@@ -60,12 +59,11 @@ class CreateAssignment extends React.Component {
         })
     }
 
-
-    //replace 1 with teacherId varibable
     handleSubmit = (event) => {
         event.preventDefault()
         const subjectId = this.props.match.params.subjectId
         const editingId = this.props.match.params.editingId
+        const teacherId = this.props.authentication.user
 
         let assignment = {
             assignment_name: this.state.title,
@@ -74,19 +72,16 @@ class CreateAssignment extends React.Component {
         }
 
         editingId ?
-            this.props.updateAssignment(1, subjectId, editingId, assignment)
+            this.props.updateAssignment(teacherId, subjectId, editingId, assignment)
             :
-            this.props.postAssignment(1, subjectId, assignment)
+            this.props.postAssignment(teacherId, subjectId, assignment)
 
         this.props.history.push('/gradebook/1')
     }
 
-
     render() {
-        const subjectId = this.props.match.params.subjectId
         const editingId = this.props.match.params.editingId
         const subjectName = this.props.subject.subject_name
-        const studentId = this.props.match.params.studentId
         return (
             <Container>
                 <Button className='float-right' id='BtnBackStud' onClick={this.props.history.goBack}><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</Button>
@@ -121,7 +116,8 @@ const mapStateToProps = (state) => {
     return ({
         assignments: state.assignments,
         students: state.students,
-        subject: state.subject
+        subject: state.subject,
+        authentication: state.authentication
     })
 }
 

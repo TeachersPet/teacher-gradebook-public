@@ -18,10 +18,10 @@ class LandingPage extends React.Component {
     };
   }
 
-  //replace 1 with teacherId when we have auth
   componentDidMount() {
-    this.props.getSubjects(1)
-    this.props.getStudents(1)
+    const teacherId = this.props.authentication.user
+    this.props.getSubjects(teacherId)
+    this.props.getStudents(teacherId)
   }
 
   toggle(tab) {
@@ -80,7 +80,8 @@ class LandingPage extends React.Component {
 const mapStateToProps = (state) => {
   return {
     subjects: state.subjects,
-    students: state.students
+    students: state.students,
+    authentication: state.authentication
   }
 }
 

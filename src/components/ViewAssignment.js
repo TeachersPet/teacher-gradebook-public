@@ -9,12 +9,12 @@ import { getOneSubject } from '../actions/subjects'
 
 class ViewAssignment extends React.Component {
 
-  //replace 1 with teacherId
   componentDidMount = () => {
+    const teacherId = this.props.authentication.user
     const subjectId = this.props.match.params.subjectId
     const assignmentId = this.props.match.params.id
-    this.props.getOneSubject(1, subjectId)
-    this.props.getOneAssignment(1, subjectId, assignmentId)
+    this.props.getOneSubject(teacherId, subjectId)
+    this.props.getOneAssignment(teacherId, subjectId, assignmentId)
   }
 
   render() {
@@ -65,7 +65,6 @@ class ViewAssignment extends React.Component {
                 )
               })
             }
-
           </tbody>
         </Table>
       </Container>
@@ -77,6 +76,7 @@ const mapStateToProps = (state) => {
   return {
     assignments: state.assignments,
     subject: state.subject,
+    authentication: state.authentication
   }
 }
 

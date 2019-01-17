@@ -1,12 +1,5 @@
 import { SET_AUTHENTICATION } from '../actions/authentication'
 
-export const posts = (state=[], action) => {
-  switch(action.type){
-    default:
-      return state
-  }
-} 
-
 const AUTHENTICATION_INITIAL_STATE = {
   user: null,
   pending: true

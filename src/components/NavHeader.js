@@ -31,7 +31,7 @@ function NavHeader() {
           </h1></NavbarBrand>
         </Link>
         <Nav className='ml-auto' navbar>
-          <Button id="SignIn"><i class="far fa-user"></i> Login</Button>{' '} 
+          <Button id="SignIn"><i className="far fa-user"></i> Login</Button>{' '} 
         </Nav>
       </Navbar>
       <br></br>

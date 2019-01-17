@@ -9,16 +9,15 @@ import { getOneStudent } from '../actions/students'
 
 export class StudentPage extends Component {
 
-  //replace 1 wtih teacherId
   componentDidMount() {
+    const teacherId = this.props.authentication.user
     const studentId = this.props.match.params.id
-    this.props.getSubjects(1)
-    this.props.getOneStudent(1, studentId)
+    this.props.getSubjects(teacherId)
+    this.props.getOneStudent(teacherId, studentId)
   }
 
   render() {
     const studentId = this.props.match.params.id
-    // const ActiveTab = this.state.activeTab
     return (
       <Container>
         <Row>
@@ -40,7 +39,8 @@ export class StudentPage extends Component {
 const mapStateToProps = (state) => {
   return {
     subjects: state.subjects,
-    student: state.student
+    student: state.student,
+    authentication: state.authentication
   }
 }
 

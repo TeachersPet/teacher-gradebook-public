@@ -1,13 +1,15 @@
 import React from 'react'
-import { Card, CardBody, CardText, CardTitle } from 'reactstrap'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
+import { Card, CardBody, CardText, CardTitle } from 'reactstrap'
 import Moment from 'react-moment'
 import { deleteAssignment } from '../actions/assignments'
 
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 function PostedAssignment(props) {
+  const teacherId = props.authentication.user
+
   return (
     <Card className='border'>
       <CardBody className='SubjectCards'>
@@ -15,17 +17,24 @@ function PostedAssignment(props) {
         <CardText>
           <Moment format='MM/DD/YY'>{props.date}</Moment>
           
-          {/* Change 1 to teacherId when we have auth */}
           <span>
-            <button onClick={() => props.deleteAssignment(1, props.subjectId, props.id)}size="sm" className="btn btn-outline-danger float-right" id="deleteBtn" ><i className="far fa-trash-alt"></i> Delete</button>
+            <button onClick={() => props.deleteAssignment(teacherId, props.subjectId, props.id)}size="sm" className="btn btn-outline-danger float-right" id="deleteBtn" ><i className="far fa-trash-alt"></i> Delete</button>
           </span>
+
           <Link to={`/createassignment/${props.subjectId}/${props.id}`}>
             <button size="sm" className="btn btn-outline-info float-right" id="editBtn"><i className="fas fa-pencil-alt"></i> Edit</button>
           </Link>
+
         </CardText>
       </CardBody>
     </Card>
   )
+}
+
+const mapStateToProps = (state) => {
+  return {
+    authentication: state.authentication
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -34,7 +43,7 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(PostedAssignment)
+export default connect(mapStateToProps, mapDispatchToProps)(PostedAssignment)
 
 
 

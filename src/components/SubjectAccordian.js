@@ -7,9 +7,9 @@ import { getOneStudentsAssignments } from '../actions/assignments'
 
 export class StudentAccordian extends Component {
 
-  //replace 1 with teacherId
   componentDidMount() {
-    this.props.getOneStudentsAssignments(1, this.props.id, this.props.studentId)
+    const teacherId = this.props.authentication.user
+    this.props.getOneStudentsAssignments(teacherId, this.props.id, this.props.studentId)
   }
 
   render() {
@@ -80,7 +80,8 @@ export class StudentAccordian extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    assignmentsPerSubject: state.assignmentsPerSubject
+    assignmentsPerSubject: state.assignmentsPerSubject,
+    authentication: state.authentication
   }
 }
 
