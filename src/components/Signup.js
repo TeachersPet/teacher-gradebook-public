@@ -10,6 +10,7 @@ import {
   Input
 } from 'reactstrap'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 class Signup extends Component {
   constructor(props) {
@@ -23,12 +24,29 @@ class Signup extends Component {
       password: ''
     }
   }
+
+  handleSignUp = (e) => {  
+      e.preventDefault()  
+      const newTeacher = {...this.state}
+      
+      console.log(newTeacher)
+      axios.post(`${process.env.REACT_APP_API_URL}/teachers`, newTeacher)
+        .then((response) => {
+          console.log('created user ' + response.data)
+        })
+        .catch( () => console.log('Could not create user.'))
+  }
+
+
+  
+
+
   render() {
     return (
       <Container>
         <Row>
         <Col md={{ size: 6, offset: 3 }}>
-          <Form className="Signup">
+          <Form className="Signup" onSubmit={this.handleSignUp}>
               <FormGroup>
                 <Label for='first_name'>First Name</Label>
                 <Input type='text' name='first_name' id='first_name' placeholder='Grace' value={this.state.first_name} onChange={event => this.setState({ first_name: event.target.value })} required />
