@@ -40,7 +40,7 @@ export class StudentAccordian extends Component {
         </div>
 
         <div id={`id${this.props.id}`} className='collapse' aria-labelledby={this.props.id} data-parent='#accordion'>
-          <div className="card-body">
+          <div className='card-body'>
             <Table>
               <thead>
                 <tr>
@@ -54,14 +54,14 @@ export class StudentAccordian extends Component {
 
                 assignments.map(assignment => {
                   return (
-                    <tbody key={assignment.id}>
+                    <tbody key={assignment.assignment_id}>
                       <tr>
                         <td>{assignment.assignment_name}</td>
                         <td>{assignment.grade}</td>
                         <td>{assignment.comment}</td>
                         <td>
-                          <Link to='/createassignment'>
-                            <Button>Edit</Button>
+                          <Link to={`/createassignment/${this.props.id}/${assignment.assignment_id}/student/${this.props.studentId}`}>
+                            <Button id='Edit'>Edit</Button>
                           </Link>
                         </td>
                       </tr>

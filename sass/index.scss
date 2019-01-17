@@ -25,9 +25,13 @@ $BtnBlue: #41BBD9;
  visibility: hidden;
 }
 
-#CreateAssign, #SignIn, #GradeSubmit, #Back, #Edit {
+#CreateAssign, #SignIn, #GradeSubmit, #Back, #Edit, #EditAsn {
   background-color: $BtnBlue;
   color: $FlashWhite;
+}
+
+#EditAsn {
+  margin-right: 10px,
 }
 
 .nav-link {
@@ -71,14 +75,12 @@ color: $FlashWhite;
   opacity: 0.7;
 }
 
-
 //////// FOOTER EDITS ////////
 //  position: relative;
 //   // bottom: 100vh;
 //   // margin-bottom: -50rem;
 //   width: 100%;
 //////// FOOTER EDITS ////////
-
 
 #AssignTitle, #AssignDate {
   color: $FlashWhite;
@@ -128,6 +130,14 @@ border-radius: 20px;
   background-color: $Black;
   opacity: 0.95;
   color: $BtnBlue;
+  border-radius: 5px;
+}
+
+#Highlighted {
+  font-weight: 500;
+  background-color: $Black;
+  opacity: 0.95;
+  color: $Pearl;
   border-radius: 5px;
 }
 

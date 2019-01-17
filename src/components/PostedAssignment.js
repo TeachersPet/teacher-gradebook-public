@@ -3,7 +3,6 @@ import { Card, CardBody, CardText, CardTitle } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
 import { deleteAssignment } from '../actions/assignments'
-import { updateAssignment } from '../actions/assignments'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -15,35 +14,27 @@ function PostedAssignment(props) {
         <CardTitle > <Link to={`/viewassignment/${props.subjectId}/${props.id}`}>{props.assignment_name}</Link> </CardTitle>
         <CardText>
           <Moment format='MM/DD/YY'>{props.date}</Moment>
-         {/* insert teacher ID */}
-          <span> 
-            <a onClick={() => props.deleteAssignment(1, props.subjectId, props.id)}size='sm' className='btn btn-outline-danger float-right' id='deleteBtn' ><i className="far fa-trash-alt"></i> Delete</a>
-          </span>
+          
+          {/* Change 1 to teacherId when we have auth */}
           <span>
-            <Link to={`/createassignment/${props.id}`}>
-            <a size='sm' className='btn btn-outline-info float-right' id='editBtn'><i className='fas fa-pencil-alt'></i> Edit</a>
-            </Link>
+            <button onClick={() => props.deleteAssignment(1, props.subjectId, props.id)}size="sm" className="btn btn-outline-danger float-right" id="deleteBtn" ><i className="far fa-trash-alt"></i> Delete</button>
           </span>
+          <Link to={`/createassignment/${props.subjectId}/${props.id}`}>
+            <button size="sm" className="btn btn-outline-info float-right" id="editBtn"><i className="fas fa-pencil-alt"></i> Edit</button>
+          </Link>
         </CardText>
       </CardBody>
     </Card>
   )
 }
-// onClick={() => props.updateAssignment(1, props.subjectId, props.id)}
-const mapStateToProps = (state) => {
-  return {
-    assignments: state.assignments
-  }
-}
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    deleteAssignment,
-    updateAssignment
+    deleteAssignment
   }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostedAssignment)
+export default connect(null, mapDispatchToProps)(PostedAssignment)
 
 
 
