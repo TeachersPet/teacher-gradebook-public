@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {
   Navbar,
   NavbarBrand,
@@ -6,8 +6,26 @@ import {
   Button
 } from 'reactstrap';
 import { Link } from 'react-router-dom'
+import { setAuthentication } from '../actions/authentication'
 
-function NavHeader() {
+
+
+class NavHeader extends Component {
+
+  logout = () => {
+    if(this.props.authState){ // log out
+      localStorage.removeItem('token')
+      setAuthentication.setAuthState(null)
+    }
+    else {
+      this.props.history.push('/')
+    }
+  }
+
+
+// if (this.props.authentication.user !== null)
+
+render() {
   return (
     <div>
       <Navbar id='NavHeader' expand='md'>
@@ -31,13 +49,18 @@ function NavHeader() {
           </h1></NavbarBrand>
         </Link>
         <Nav className='ml-auto' navbar>
-          <Button id="SignIn"><i className="far fa-user"></i> Login</Button>{' '} 
+        {this.props.authState ?
+        <Link to='/'>
+          <Button id="SignIn" onClick={()=>this.logout} ><i class="far fa-user"></i> Log Out</Button>{' '} 
+        </Link> : null
+        }
         </Nav>
       </Navbar>
       <br></br>
       <br></br>
     </div>
-  )
+    )
+  }
 }
 
 export default NavHeader
