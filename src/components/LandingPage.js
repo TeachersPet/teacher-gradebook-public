@@ -14,7 +14,7 @@ class LandingPage extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      activeTab: '1'
+      activeTab: this.props.match.params.tab 
     };
   }
 

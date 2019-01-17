@@ -10,7 +10,7 @@ function NavHeader() {
   return (
     <div>
       <Navbar id='NavHeader' expand='md'>
-        <Link to='/Gradebook'>
+        <Link to='/Gradebook/1'>
           <NavbarBrand><h1 className='headerTitle'><span role='img' aria-label='apple'>🍎</span>
           <span> </span>
             <span style={{ color: 'orange' }}>T</span>

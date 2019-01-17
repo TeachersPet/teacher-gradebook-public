@@ -77,7 +77,7 @@ class CreateAssignment extends React.Component {
       :
       this.props.postAssignment(1, subjectId, assignment)
     
-    this.props.history.push('/gradebook')
+    this.props.history.push('/gradebook/1')
   }
 
 

@@ -22,7 +22,7 @@ class App extends Component {
           <NavHeader />
             <Route exact path="/" component={Login} />
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/gradebook" component={LandingPage} />
+            <Route exact path="/gradebook/:tab" component={LandingPage} />
             <Route exact path="/subjects/:id" component={Subjects} />
             <Route exact path="/createAssignment/:subjectId" component={CreateAssignment} />
             <Route exact path="/createAssignment/:subjectId/:editingId" component={CreateAssignment} />
