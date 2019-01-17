@@ -9,8 +9,8 @@ import { bindActionCreators } from 'redux'
 
 function PostedAssignment(props) {
   return (
-    <Card className="border">
-      <CardBody className="SubjectCards">
+    <Card className='border'>
+      <CardBody className='SubjectCards'>
         <CardTitle > <Link to={`/viewassignment/${props.subjectId}/${props.id}`}>{props.assignment_name}</Link> </CardTitle>
         <CardText>
           <Moment format='MM/DD/YY'>{props.date}</Moment>

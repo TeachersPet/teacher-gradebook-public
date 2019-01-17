@@ -43,7 +43,7 @@ class LandingPage extends React.Component {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink id="StudentLand"
+            <NavLink id='StudentLand'
               className={classnames({ active: this.state.activeTab === '2' })}
               onClick={() => { this.toggle('2'); }}>
               <strong>Students</strong>
@@ -51,9 +51,9 @@ class LandingPage extends React.Component {
           </NavItem>
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
-          <TabPane tabId="1">
+          <TabPane tabId='1'>
             <Row>
-              <Col sm="12">
+              <Col sm='12'>
                 <ListGroup>
                   { this.props.subjects.map ( subject => <Subject key={subject.id} {...subject}/>)}
                 </ListGroup>
@@ -62,9 +62,9 @@ class LandingPage extends React.Component {
           </TabPane>
         </TabContent>
         <TabContent activeTab={this.state.activeTab}>
-          <TabPane tabId="2">
+          <TabPane tabId='2'>
             <Row>
-              <Col sm="12">
+              <Col sm='12'>
                 <ListGroup>
                   { this.props.students.map ( student => <Student key={student.id} {...student}/>)}
                 </ListGroup>

@@ -29,7 +29,7 @@ export function getOneStudentsAssignments(teacherId, subjectId, studentId) {
         subjectId
       })
     })
-    .catch(() => console.log('could not get assignments'))
+    .catch(() => console.log('Assignment Could Not Be Retrieved'))
   }
 }
 
@@ -44,7 +44,7 @@ export function getOneAssignment(teacherId, subjectId, assignmentId) {
           payload: response.data
         })
       })
-      .catch(() => console.log('could not get 1 assignment'))
+      .catch(() => console.log('Could Not Find The Requested Assignment'))
   )
 }
 
@@ -54,7 +54,7 @@ export function deleteAssignment(teacherId, subjectId, assignmentId) {
       .then( () => {
           dispatch(getAssignments(teacherId, subjectId))
       })
-      .catch(() => console.log('could not delete assignment.'))
+      .catch(() => console.log('Assignment Could Not Be Deleted'))
   }
 }
 

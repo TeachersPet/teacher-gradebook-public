@@ -19,12 +19,12 @@ export class StudentAccordian extends Component {
       total = assignments.reduce((acc, assignment) => acc + assignment.grade, 0)
     }
     return (
-      <div className="card">
-        <div className="card-header" id={this.props.id}>
-          <div className="mb-0">
+      <div className='card'>
+        <div className='card-header' id={this.props.id}>
+          <div className='mb-0'>
             <Row className='align-items-center'>
               <Col md='8'>
-                <button className="btn btn-link" type="button" data-toggle="collapse" data-target={`#id${this.props.id}`} aria-expanded="true" aria-controls={`id${this.props.id}`}>
+                <button className='btn btn-link' type='button' data-toggle='collapse' data-target={`#id${this.props.id}`} aria-expanded='true' aria-controls={`id${this.props.id}`}>
                   <strong>{this.props.subject_name}</strong>
                 </button>
               </Col>
@@ -39,7 +39,7 @@ export class StudentAccordian extends Component {
           </div>
         </div>
 
-        <div id={`id${this.props.id}`} className="collapse" aria-labelledby={this.props.id} data-parent="#accordion">
+        <div id={`id${this.props.id}`} className='collapse' aria-labelledby={this.props.id} data-parent='#accordion'>
           <div className="card-body">
             <Table>
               <thead>

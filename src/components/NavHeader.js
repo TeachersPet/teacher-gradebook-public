@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom'
 function NavHeader() {
   return (
     <div>
-      <Navbar id="NavHeader" expand="md">
-        <Link to="/Gradebook">
-          <NavbarBrand><h1 className="headerTitle"><span role="img" aria-label="apple">🍎</span>
+      <Navbar id='NavHeader' expand='md'>
+        <Link to='/Gradebook'>
+          <NavbarBrand><h1 className='headerTitle'><span role='img' aria-label='apple'>🍎</span>
           <span> </span>
             <span style={{ color: 'orange' }}>T</span>
             <span style={{ color: 'yellow' }}>e</span>
@@ -29,7 +29,7 @@ function NavHeader() {
 
           </h1></NavbarBrand>
         </Link>
-        <Nav className="ml-auto" navbar>
+        <Nav className='ml-auto' navbar>
           {/* <Button id="SignIn"><i class="far fa-user"></i> Login</Button>{' '}  */}
         </Nav>
       </Navbar>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import './App.css';
 import './index.css'
 import NavHeader from './components/NavHeader'
 import NavFooter from './components/NavFooter';
@@ -17,9 +16,9 @@ import { bindActionCreators } from 'redux'
 class App extends Component {
   render() {
     return (
-      <div className="App" >
+      <div className='App Site' >
         <BrowserRouter>
-          <div>
+          <div className='Site-content'>
           <NavHeader />
             <Route exact path="/" component={Login} />
             <Route exact path="/signup" component={Signup} />

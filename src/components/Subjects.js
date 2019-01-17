@@ -20,9 +20,9 @@ class SubjectsPage extends React.Component {
       <div>
         <Container>
           <Row>
-            <Col sm="12" md={{ size: 6, offset: 3 }}>
+            <Col sm='12' md={{ size: 6, offset: 3 }}>
               <Link to={`/createassignment/${subjectId}`}>
-                <Button id="CreateAssign" size="lg" block><i className="fas fa-folder-plus"></i> Create New Assignment</Button>
+                <Button id='CreateAssign' size='lg' block><i className='fas fa-folder-plus'></i> Create New Assignment</Button>
               </Link>
             </Col>
           </Row>
