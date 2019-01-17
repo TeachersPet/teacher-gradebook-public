@@ -40,7 +40,7 @@ export class StudentAccordian extends Component {
         </div>
 
         <div id={`id${this.props.id}`} className='collapse' aria-labelledby={this.props.id} data-parent='#accordion'>
-          <div className="card-body">
+          <div className='card-body'>
             <Table>
               <thead>
                 <tr>
