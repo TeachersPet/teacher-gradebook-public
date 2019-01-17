@@ -40,17 +40,16 @@ class ViewAssignment extends React.Component {
               <th></th>
             </tr>
           </thead>
-
-
+          
           <tbody>
             {
               this.props.assignments.map(asn => {
                 return (
-                  <tr key={assignment.id}>
+                  <tr key={asn.assignment_id}>
                     <td>{asn.first_name + ' ' + asn.last_name}</td>
                     <td>{asn.grade}</td>
                     <td>{asn.comment}</td>
-                    <td><Link to='./createassignment'><Button id='Edit'>Edit</Button></Link></td>
+                    <td><Link to={`/createassignment/${subjectId}/${asn.assignment_id}`}><Button id='Edit'>Edit</Button></Link></td>
                   </tr>
                 )
               })
@@ -66,7 +65,6 @@ class ViewAssignment extends React.Component {
 const mapStateToProps = (state) => {
   return {
     assignments: state.assignments,
-    students: state.students,
     subject: state.subject,
   }
 }
