@@ -31,11 +31,11 @@ class Signup extends Component {
           <Form className="Signup">
               <FormGroup>
                 <Label for='first_name'>First Name</Label>
-                <Input type='text' name='first_name' id='first_name' value={this.state.first_name} onChange={event => this.setState({ first_name: event.target.value })} required />
+                <Input type='text' name='first_name' id='first_name' placeholder='Grace' value={this.state.first_name} onChange={event => this.setState({ first_name: event.target.value })} required />
               </FormGroup>
               <FormGroup>
                 <Label for='last_name'> Last Name </Label>
-                <Input type='text' name='last_name' id='last_name' value={this.state.last_name} onChange={event => this.setState({ last_name: event.target.value })} required />
+                <Input type='text' name='last_name' id='last_name' placeholder='Hopper' value={this.state.last_name} onChange={event => this.setState({ last_name: event.target.value })} required />
               </FormGroup>
               <FormGroup>
                 <Label for='grade_level'> Grade Level</Label>
@@ -50,15 +50,15 @@ class Signup extends Component {
               </FormGroup>
               <FormGroup>
                 <Label for='email'> Email</Label>
-                <Input type='email' name='email' id='email' value={this.state.email} onChange={event => this.setState({ email: event.target.value })} required />
+                <Input type='email' name='email' id='email' placeholder='email@email.com' value={this.state.email} onChange={event => this.setState({ email: event.target.value })} required />
               </FormGroup>
               <FormGroup>
                 <Label for='password'>Password</Label>
-                <Input type='password' name='password' id='password' value={this.state.password} onChange={event => this.setState({ password: event.target.value })} required />
+                <Input type='password' name='password' id='password' placeholder='********' value={this.state.password} onChange={event => this.setState({ password: event.target.value })} required />
               </FormGroup>
           
               <Button className='mr-3' type='submit' color='primary'>
-                Login
+                Sign Up
               </Button>
               <Link to='/'>Already A Member? Login.</Link>
             </Form>          </Col>
