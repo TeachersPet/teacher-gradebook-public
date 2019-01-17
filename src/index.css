@@ -16,7 +16,7 @@
   height: 0;
   visibility: hidden; }
 
-#CreateAssign, #SignIn, #GradeSubmit, #Back, #Edit, #EditAsn {
+#CreateAssign, #SignIn, #GradeSubmit, #Back, #Edit, #EditAsn, #BtnBackStud {
   background-color: #41BBD9;
   color: #E9F1F7; }
 
@@ -100,9 +100,9 @@
 
 #Highlighted {
   font-weight: 500;
-  background-color: #131B23;
+  background-color: yellow;
   opacity: 0.95;
-  color: #E7DFC6;
+  color: #131B23;
   border-radius: 5px; }
 
 body {

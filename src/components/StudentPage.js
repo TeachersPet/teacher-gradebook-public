@@ -18,13 +18,13 @@ export class StudentPage extends Component {
 
   render() {
     const studentId = this.props.match.params.id
-
+    // const ActiveTab = this.state.activeTab
     return (
       <Container>
         <Row>
           <h1 id='StudentName'>{this.props.student.first_name} {this.props.student.last_name}</h1>
           <Col >
-            <Link to={`/gradebook`}>
+            <Link to={`/gradebook/`}>
               <Button className='float-right' id='Back'>Back to Students</Button>
             </Link>
           </Col>
