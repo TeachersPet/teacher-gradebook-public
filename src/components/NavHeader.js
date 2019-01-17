@@ -7,15 +7,21 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import { setAuthentication } from '../actions/authentication'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 
 
 class NavHeader extends Component {
 
+
+
+
+
   logout = () => {
-    if(this.props.authState){ // log out
+    if(this.props.authentication.user){ 
       localStorage.removeItem('token')
-      setAuthentication.setAuthState(null)
+      this.props.setAuthentication(null)
     }
     else {
       this.props.history.push('/')
@@ -23,7 +29,6 @@ class NavHeader extends Component {
   }
 
 
-// if (this.props.authentication.user !== null)
 
 render() {
   return (
@@ -49,9 +54,10 @@ render() {
           </h1></NavbarBrand>
         </Link>
         <Nav className='ml-auto' navbar>
-        {this.props.authState ?
+        {
+          this.props.authentication.user ?
         <Link to='/'>
-          <Button id="SignIn" onClick={()=>this.logout} ><i class="far fa-user"></i> Log Out</Button>{' '} 
+          <Button id="SignIn" onClick={this.logout} ><i class="far fa-user"></i> Log Out</Button> 
         </Link> : null
         }
         </Nav>
@@ -63,4 +69,16 @@ render() {
   }
 }
 
-export default NavHeader
+const mapStateToProps = (state) => {
+  return {
+    authentication: state.authentication
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    setAuthentication
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavHeader)
