@@ -1,6 +1,6 @@
 export const SET_AUTHENTICATION = 'SET_AUTHENTICATION'
 
-export const setAuthentication = claim => ({
+export const setAuthentication = id => ({
   type: SET_AUTHENTICATION,
-  payload: claim
+  payload: id
 })

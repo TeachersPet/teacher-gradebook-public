@@ -1,12 +1,27 @@
 import axios from 'axios'
 
+export const attachHeader = () => {
+  let bearer = ''
+  const token = localStorage.getItem('token')
+  if (token) bearer = `Bearer ${token}`
+
+  return {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': bearer
+    }
+  }
+}
+
 const BASE_URL = process.env.REACT_APP_API_URL
 
 export const GET_ASSIGNMENTS = 'GET_ASSIGNMENTS'
 
 export function getAssignments(teacherId, subjectId) {
+
   return dispatch => (
-    axios.get(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments`)
+    axios.get(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments`, attachHeader())
       .then((response) => {
         dispatch({
           type: GET_ASSIGNMENTS,
@@ -21,7 +36,7 @@ export const GET_ONE_STUDENTS_ASSIGNMENTS = 'GET_ONE_STUDENTS_ASSIGNMENTS'
 
 export function getOneStudentsAssignments(teacherId, subjectId, studentId) {
   return dispatch => {
-    axios.get(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments?student=${studentId}`)
+    axios.get(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments?student=${studentId}`, attachHeader())
     .then( (response) => {
       dispatch({
         type: GET_ONE_STUDENTS_ASSIGNMENTS,
@@ -37,7 +52,7 @@ export const GET_ONE_ASSIGNMENT = 'GET_ONE_ASSIGNMENT'
 
 export function getOneAssignment(teacherId, subjectId, assignmentId) {
   return dispatch => (
-    axios.get(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`)
+    axios.get(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`, attachHeader())
       .then((response) => {
         dispatch({
           type: GET_ONE_ASSIGNMENT,
@@ -50,7 +65,7 @@ export function getOneAssignment(teacherId, subjectId, assignmentId) {
 
 export function deleteAssignment(teacherId, subjectId, assignmentId) {
   return(dispatch) => {
-      axios.delete(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`)
+      axios.delete(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`, attachHeader())
       .then( () => {
           dispatch(getAssignments(teacherId, subjectId))
       })
@@ -60,7 +75,7 @@ export function deleteAssignment(teacherId, subjectId, assignmentId) {
 
 export function postAssignment(teacherId, subjectId, newAssignment) {
   return dispatch => {
-    axios.post(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments`, newAssignment)
+    axios.post(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments`, newAssignment, attachHeader())
       .then(() => {
         dispatch(
           getAssignments(teacherId, subjectId)
@@ -71,10 +86,11 @@ export function postAssignment(teacherId, subjectId, newAssignment) {
 
 export function updateAssignment(teacherId, subjectId, assignmentId, editedAssignment) {
   return dispatch => {
-    axios.put(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`, editedAssignment)
+    axios.put(`${BASE_URL}/teachers/${teacherId}/subjects/${subjectId}/assignments/${assignmentId}`, editedAssignment, attachHeader())
       .then(()=> { 
         dispatch(getAssignments(teacherId, subjectId)
       )
     })
   }
 }
+

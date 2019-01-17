@@ -111,3 +111,9 @@ body {
   background-position: 0 auto;
   background-size: 0/50% auto;
   height: 350px; }
+
+.login-fail {
+  height: 38px;
+  vertical-align: middle;
+  line-height: 1rem;
+  margin-left: 10px; }
