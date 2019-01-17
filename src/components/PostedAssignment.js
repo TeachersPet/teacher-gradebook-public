@@ -15,19 +15,21 @@ function PostedAssignment(props) {
         <CardTitle > <Link to={`/viewassignment/${props.subjectId}/${props.id}`}>{props.assignment_name}</Link> </CardTitle>
         <CardText>
           <Moment format='MM/DD/YY'>{props.date}</Moment>
-          
-          <span>
-            <a onClick={() => props.deleteAssignment(props.teacherId, props.subjectId, props.id)}size="sm" className="btn btn-outline-danger float-right" id="deleteBtn" ><i className="far fa-trash-alt"></i> Delete</a>
+         {/* insert teacher ID */}
+          <span> 
+            <a onClick={() => props.deleteAssignment(1, props.subjectId, props.id)}size="sm" className="btn btn-outline-danger float-right" id="deleteBtn" ><i className="far fa-trash-alt"></i> Delete</a>
           </span>
           <span>
-            <a onClick={() => props.updateAssignment(props.teacherId, props.subjectId, props.id)} size="sm" className="btn btn-outline-info float-right" id="editBtn"><i className="fas fa-pencil-alt"></i> Edit</a>
+            <Link to={`/createassignment/${props.id}`}>
+            <a size="sm" className="btn btn-outline-info float-right" id="editBtn"><i className="fas fa-pencil-alt"></i> Edit</a>
+            </Link>
           </span>
         </CardText>
       </CardBody>
     </Card>
   )
 }
-
+// onClick={() => props.updateAssignment(1, props.subjectId, props.id)}
 const mapStateToProps = (state) => {
   return {
     assignments: state.assignments

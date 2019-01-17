@@ -26,6 +26,7 @@ class App extends Component {
             <Route exact path="/gradebook" component={LandingPage} />
             <Route exact path="/subjects/:id" component={Subjects} />
             <Route exact path="/createAssignment/:subjectId" component={CreateAssignment} />
+            <Route exact path="/createAssignment/:assignmentId" component={CreateAssignment} />
             <Route exact path="/viewassignment/:subjectId/:id" component={ViewAssignment} />
             <Route path="/students/:id" component={StudentPage} />
           </div>
