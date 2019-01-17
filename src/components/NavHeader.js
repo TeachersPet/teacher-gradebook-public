@@ -3,6 +3,7 @@ import {
   Navbar,
   NavbarBrand,
   Nav,
+  Button
 } from 'reactstrap';
 import { Link } from 'react-router-dom'
 
@@ -30,7 +31,7 @@ function NavHeader() {
           </h1></NavbarBrand>
         </Link>
         <Nav className='ml-auto' navbar>
-          {/* <Button id="SignIn"><i class="far fa-user"></i> Login</Button>{' '}  */}
+          <Button id="SignIn"><i class="far fa-user"></i> Login</Button>{' '} 
         </Nav>
       </Navbar>
       <br></br>

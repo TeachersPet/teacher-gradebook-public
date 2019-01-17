@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, FormGroup, Input, Label, Form, Button } from 'reactstrap';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Link } from 'react-router-dom' 
 import { getStudents } from '../actions/students'
 import { postAssignment, updateAssignment, getOneAssignment } from '../actions/assignments'
 import { getOneSubject } from '../actions/subjects'
@@ -84,17 +85,21 @@ class CreateAssignment extends React.Component {
   render() {
     const editingId = this.props.match.params.editingId
     const subjectName = this.props.subject.subject_name
+    const studentId = this.props.match.params.studentId
     return (
       <Container>
-        <h1 id="NewAssignment">{editingId ? `Edit ${subjectName}` : `New ${subjectName}`} Assignment</h1><br></br>
+        <Link to={`/Students/${studentId}`}>
+          <Button className='float-right' id='BtnBackStud'>Back</Button>
+        </Link>
+        <h1 id='NewAssignment'>{editingId ? `Edit ${subjectName}` : `New ${subjectName}`} Assignment</h1><br></br>
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
-            <Label for="title"><h3 id="AssignTitle">Title</h3></Label>
-            <Input type="text" name="title" id="title" value={this.state.title} onChange={this.handleChange} required/>
+            <Label for='title'><h3 id='AssignTitle'>Title</h3></Label>
+            <Input type='text' name='title' id='title' value={this.state.title} onChange={this.handleChange} required/>
           </FormGroup>
           <FormGroup>
-            <Label for="date"><h3 id="AssignDate">Date</h3></Label>
-            <Input type="date" name="date" id="date" value={this.state.date} onChange={this.handleChange} required/>
+            <Label for='date'><h3 id='AssignDate'>Date</h3></Label>
+            <Input type='date' name='date' id='date' value={this.state.date} onChange={this.handleChange} required/>
           </FormGroup>
           {this.props.students.map(student => {
             return <CreateAssignmentStudent key={student.id} {...student}
@@ -105,7 +110,7 @@ class CreateAssignment extends React.Component {
             />
           })
           }
-          <Button className='float-right' id="GradeSubmit">Submit</Button>
+          <Button className='float-right' id='GradeSubmit'>Submit</Button>
         </Form>
       </Container>
     )

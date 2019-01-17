@@ -20,6 +20,7 @@ class App extends Component {
         <BrowserRouter>
           <div className='Site-content'>
           <NavHeader />
+
             <Route exact path="/" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/gradebook/:tab" component={LandingPage} />
@@ -29,6 +30,7 @@ class App extends Component {
             <Route exact path="/createAssignment/:subjectId/:editingId/student/:studentId" component={CreateAssignment} />
             <Route exact path="/viewassignment/:subjectId/:id" component={ViewAssignment} />
             <Route path="/students/:id" component={StudentPage} />
+
           </div>
         </BrowserRouter>
         <NavFooter />

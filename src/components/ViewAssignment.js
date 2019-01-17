@@ -58,6 +58,7 @@ class ViewAssignment extends React.Component {
                   <tr key={asn.assignment_id}>
                     <td>{asn.first_name + ' ' + asn.last_name}</td>
                     <td>{asn.grade}</td>
+                    
                     <td>{asn.comment}</td>
                     <td><Link to={`/createassignment/${subjectId}/${asn.assignment_id}/student/${asn.student_id}`}><Button id='Edit'>Edit</Button></Link></td>
                   </tr>

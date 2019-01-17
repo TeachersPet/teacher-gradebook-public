@@ -25,7 +25,7 @@ $BtnBlue: #41BBD9;
  visibility: hidden;
 }
 
-#CreateAssign, #SignIn, #GradeSubmit, #Back, #Edit, #EditAsn {
+#CreateAssign, #SignIn, #GradeSubmit, #Back, #Edit, #EditAsn, #BtnBackStud {
   background-color: $BtnBlue;
   color: $FlashWhite;
 }
@@ -59,7 +59,7 @@ color: $FlashWhite;
   
 }
 
- .headerTitle {
+.headerTitle {
   font-family: 'Schoolbell', cursive;
   flex-direction: row;
 }
@@ -74,13 +74,6 @@ color: $FlashWhite;
   background-color: $Lapis;
   opacity: 0.7;
 }
-
-//////// FOOTER EDITS ////////
-//  position: relative;
-//   // bottom: 100vh;
-//   // margin-bottom: -50rem;
-//   width: 100%;
-//////// FOOTER EDITS ////////
 
 #AssignTitle, #AssignDate {
   color: $FlashWhite;
@@ -135,9 +128,9 @@ border-radius: 20px;
 
 #Highlighted {
   font-weight: 500;
-  background-color: $Black;
+  background-color: yellow;
   opacity: 0.95;
-  color: $Pearl;
+  color: $Black;
   border-radius: 5px;
 }
 
@@ -149,4 +142,10 @@ body {
   background-position: 0 auto;
   background-size: 0/50% auto;
   height: 350px;
+}
+.login-fail {
+  height: 38px;
+  vertical-align: middle;
+  line-height: 1rem;
+  margin-left: 10px;
 }

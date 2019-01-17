@@ -18,7 +18,7 @@ export class StudentPage extends Component {
 
   render() {
     const studentId = this.props.match.params.id
-
+    // const ActiveTab = this.state.activeTab
     return (
       <Container>
         <Row>

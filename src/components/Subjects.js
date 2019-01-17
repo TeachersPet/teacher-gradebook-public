@@ -25,6 +25,11 @@ class SubjectsPage extends React.Component {
                 <Button id='CreateAssign' size='lg' block><i className='fas fa-folder-plus'></i> Create New Assignment</Button>
               </Link>
             </Col>
+            <Col>
+            <Link to={`/Gradebook`}>
+              <Button className='float-right' id='BtnBackStud'><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</Button>
+              </Link>
+            </Col>
           </Row>
         </Container>
 
