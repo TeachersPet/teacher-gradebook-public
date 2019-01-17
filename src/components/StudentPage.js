@@ -22,14 +22,14 @@ export class StudentPage extends Component {
     return (
       <Container>
         <Row>
-          <h1 id="StudentName">{this.props.student.first_name} {this.props.student.last_name}</h1>
+          <h1 id='StudentName'>{this.props.student.first_name} {this.props.student.last_name}</h1>
           <Col >
             <Link to={`/gradebook`}>
               <Button className='float-right' id='Back'>Back to Students</Button>
             </Link>
           </Col>
         </Row>
-        <div className="accordion" id="accordion">
+        <div className='accordion' id='accordion'>
           {this.props.subjects.map(subject => <SubjectAccordian key={subject.id} {...subject} studentId={studentId} />)}
         </div>
       </Container>

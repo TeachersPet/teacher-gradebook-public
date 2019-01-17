@@ -8,6 +8,14 @@
 #GradeSubmit {
   margin: 30px; }
 
+.Signup {
+  margin: 50px;
+  background-color: #131B23;
+  opacity: 0.9;
+  padding: 10%;
+  border-radius: 20px;
+  color: #E9F1F7; }
+
 .Login {
   background-color: #131B23;
   opacity: 0.9;
