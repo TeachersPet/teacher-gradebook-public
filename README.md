@@ -1,6 +1,10 @@
 # Teacher's Pet
   * An easy to use and accessible web-based grading application for elementary school teachers.
 
+        ![](./Edit_SS.png)
+
+        ![](./Login_SS.png)
+
 
 ## To Install
   * Download from GitHub
