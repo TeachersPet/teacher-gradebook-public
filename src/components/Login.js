@@ -23,7 +23,7 @@ class Login extends Component {
               </FormGroup>
               <FormGroup>
                 <Label for='password'>Password</Label>
-                <Input type='password' name='password' id='password' placeholder='********' value={this.state.password} onChange={event => this.setState({ password: event.target.value })} />
+                <Input type='password' name='password' id='password' value={this.state.password} onChange={event => this.setState({ password: event.target.value })} />
               </FormGroup>
               <Button className='mr-3' type='submit' color='primary'>
                 Login
