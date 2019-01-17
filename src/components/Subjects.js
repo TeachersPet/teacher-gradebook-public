@@ -27,7 +27,7 @@ class SubjectsPage extends React.Component {
             </Col>
             <Col>
             <Link to={`/Gradebook`}>
-              <Button className='float-right' id='BtnBackStud'>Back</Button>
+              <Button className='float-right' id='BtnBackStud'><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</Button>
               </Link>
             </Col>
           </Row>
