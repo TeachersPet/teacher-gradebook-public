@@ -89,7 +89,7 @@ class CreateAssignment extends React.Component {
     return (
       <Container>
         <Link to={`/Students/${studentId}`}>
-          <Button className='float-right' id='BtnBackStud'>Back</Button>
+          <Button className='float-right' id='BtnBackStud'><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</Button>
         </Link>
         <h1 id='NewAssignment'>{editingId ? `Edit ${subjectName}` : `New ${subjectName}`} Assignment</h1><br></br>
         <Form onSubmit={this.handleSubmit}>
@@ -110,7 +110,7 @@ class CreateAssignment extends React.Component {
             />
           })
           }
-          <Button className='float-right' id='GradeSubmit'>Submit</Button>
+          <Button className='float-right' id='GradeSubmit'><i class="fa fa-paper-plane" aria-hidden="true"></i> Submit</Button>
         </Form>
       </Container>
     )
