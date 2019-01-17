@@ -25,7 +25,7 @@ export class StudentPage extends Component {
           <h1 id='StudentName'>{this.props.student.first_name} {this.props.student.last_name}</h1>
           <Col >
             <Link to={`/gradebook/2`}>
-              <Button className='float-right' id='Back'>Back to Students</Button>
+              <Button className='float-right' id='Back'><i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Students</Button>
             </Link>
           </Col>
         </Row>

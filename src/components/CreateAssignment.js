@@ -89,7 +89,7 @@ class CreateAssignment extends React.Component {
         const studentId = this.props.match.params.studentId
         return (
             <Container>
-                <Button className='float-right' id='BtnBackStud' onClick={this.props.history.goBack}>Back</Button>
+                <Button className='float-right' id='BtnBackStud' onClick={this.props.history.goBack}><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</Button>
                 <h1 id='NewAssignment'>{editingId ? `Edit ${subjectName}` : `New ${subjectName}`} Assignment</h1><br></br>
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
@@ -109,7 +109,7 @@ class CreateAssignment extends React.Component {
                         />
                     })
                     }
-                    <Button className='float-right' id='GradeSubmit'>Submit</Button>
+                    <Button className='float-right' id='GradeSubmit'><i class="fa fa-paper-plane" aria-hidden="true"></i> Submit</Button>
                 </Form>
             </Container>
         )
