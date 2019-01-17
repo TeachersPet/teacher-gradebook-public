@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Button, Form, FormGroup, Label, Container, Row, Col, Input } from 'reactstrap'
+import { Button, Form, FormGroup, Label, Container, Row, Col, Input, Alert } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import {setAuthentication} from '../actions/authentication'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import request from '../utils/request'
 
 
 class Login extends Component {
@@ -12,31 +13,30 @@ class Login extends Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      showErrorMessage: false
     }
   }
   
   handleSignIn = event => {
-    // event.preventDefault()
-    
-    // const { inputEmail, inputPassword } = event.target
+    event.preventDefault()
 
-    // request('/auth/token','post', {
-    //   username: inputEmail.value,
-    //   password: inputPassword.value })
-    // .then(response => {
-    //   this.setState({ showErrorMessage: false })
+    request('/login','post', {
+      email: this.state.email,
+      password: this.state.password })
+    .then(response => {
+      this.setState({ showErrorMessage: false })
       
-    //   localStorage.setItem('token', response.data.token)
-    //   return request('/auth/token')
-    // })
-    // .then(response => {
-    //   this.props.setAuthentication(response.data)
-    //   this.props.history.push('/')
-    // })
-    // .catch(error => {
-    //   this.setState({showErrorMessage: true})
-    // })
+      localStorage.setItem('token', response.data.token)
+      return request('/login')
+    })
+    .then(response => {
+      this.props.setAuthentication(response.data.id)
+      this.props.history.push('/Gradebook')
+    })
+    .catch(error => {
+      this.setState({showErrorMessage: true})
+    })
   }
 
   render() {
@@ -53,10 +53,26 @@ class Login extends Component {
                 <Label for='password'>Password</Label>
                 <Input type='password' name='password' id='password' value={this.state.password} onChange={event => this.setState({ password: event.target.value })} />
               </FormGroup>
-              <Button className='mr-3' type='submit' color='primary'>
-                Login
-              </Button>
-              <Link to='/Signup'>Not a member? Sign Up!</Link>
+              
+                
+                <Row>
+                <Col md='2'>
+                <Button className='mr-3' type='submit' color='primary'>
+                  Login
+                </Button>
+               
+                </Col>
+                {
+               
+               this.state.showErrorMessage ? 
+               <Col md='10'>
+                <Alert className='login-fail' color='danger'>Incorrect email or password.</Alert>
+                </Col>
+                : null
+                
+                }
+              </Row>
+                <Link to='/Signup'>Not a member? Sign Up!</Link>
             </Form>
           </Col>
         </Row>
