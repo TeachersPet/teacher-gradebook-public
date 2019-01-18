@@ -71,6 +71,7 @@ class CreateAssignment extends React.Component {
       students: Object.values(this.state.grades)
     }
 
+
     editingId ?
       this.props.updateAssignment(teacherId, subjectId, editingId, assignment)
       :

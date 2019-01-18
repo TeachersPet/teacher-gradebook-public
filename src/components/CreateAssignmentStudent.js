@@ -3,6 +3,7 @@ import { FormGroup, Input, Label, Row, Col, Container } from 'reactstrap';
 
 export function CreateAssignmentStudent({ id, first_name, last_name, grade = 0, comment = '', handleStudentChange, studentId }) {
   return (
+
   <Container>
     <FormGroup >
     <Row>
@@ -23,6 +24,7 @@ export function CreateAssignmentStudent({ id, first_name, last_name, grade = 0, 
     </Row>
     </FormGroup>
   </Container>
+
   )
 }
 
