@@ -6,8 +6,8 @@ export function CreateAssignmentStudent({ id, first_name, last_name, grade = 0, 
     <Container>
       <FormGroup >
         <Row>
-          <Col className='StudentName' ><Label id={id === studentId ? 'Highlighted' : 'AssName'} for='grade'>{first_name} {last_name}</Label></Col>
-          <Col>
+          <Col md='2' id='createStudent' className='StudentName' ><Label id={id === studentId ? 'Highlighted' : 'AssName'} for='grade'>{first_name} {last_name}</Label></Col>
+          <Col md='1' id='createStudent'>
             <Input type='select' name='grade' id='grade' value={grade} onChange={(e) => handleStudentChange(id, 'grade', e.target.value)}>
               <option>0</option>
               <option>1</option>
@@ -17,7 +17,7 @@ export function CreateAssignmentStudent({ id, first_name, last_name, grade = 0, 
             </Input>
           </Col>
 
-          <Col>
+          <Col md='9' id='createStudent'>
             <Input autoFocus={id === studentId} id='comment' placeholder='Comments' value={comment} onChange={(e) => handleStudentChange(id, 'comment', e.target.value)}></Input>
           </Col>
         </Row>

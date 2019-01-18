@@ -95,6 +95,7 @@ class CreateAssignment extends React.Component {
                         <Label for='date'><h3 id='AssignDate'>Date</h3></Label>
                         <Input type='date' name='date' id='date' value={this.state.date} onChange={this.handleChange} required />
                     </FormGroup>
+                    <div id='grading'>
                     {this.props.students.map(student => {
                         return <CreateAssignmentStudent key={student.id} {...student}
                             handleStudentChange={this.handleStudentChange}
@@ -104,6 +105,7 @@ class CreateAssignment extends React.Component {
                         />
                     })
                     }
+                    </div>
                     <Button className='float-right' id='GradeSubmit'><i class="fa fa-paper-plane" aria-hidden="true"></i> Submit</Button>
                 </Form>
             </Container>

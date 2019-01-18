@@ -96,17 +96,33 @@
 
 .StudentName, #AssName {
   font-weight: 500;
-  background-color: #131B23;
-  opacity: 0.95;
-  color: #41BBD9;
-  border-radius: 5px; }
+  background-color: #ffffff;
+  color: #131B23;
+  margin: 0;
+  vertical-align: middle;
+  padding-left: 15px;
+  padding-top: 6px;
+  max-height: 37px; }
+
+#createStudent {
+  padding: 0;
+  margin-bottom: 0 !important; }
+
+#comment, #grade {
+  border-radius: 0; }
+
+#grading {
+  background-color: #D3D6D9; }
 
 #Highlighted {
   font-weight: 500;
-  background-color: yellow;
-  opacity: 0.95;
+  background-color: #F9EB77;
   color: #131B23;
-  border-radius: 5px; }
+  margin: 0;
+  vertical-align: middle;
+  padding-left: 15px;
+  padding-top: 6px;
+  max-height: 37px; }
 
 body {
   font-family: 'PT Sans', sans-serif;

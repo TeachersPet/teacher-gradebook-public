@@ -1,17 +1,20 @@
 @charset "utf-8";
 
-
 $Black: #131B23;
 $FlashWhite: #E9F1F7;
 $Lapis: #2274A5;
 $Pearl: #E7DFC6;
 $BtnBlue: #41BBD9;
+$White: #ffffff;
+$LightGray: #D3D6D9;
+$Yellow: #F9EB77;
 
 .Site {
  display: flex;
  flex-direction: column;
  min-height: 100vh;
 }
+
 .Site-content {
  flex: 1 0 auto;
  padding: var( — space) var( — space) 0;
@@ -41,6 +44,7 @@ $BtnBlue: #41BBD9;
 #GradeSubmit {
   margin: 30px;
 }
+
 .Signup {
 margin: 50px;
 background-color: $Black;
@@ -125,18 +129,37 @@ border-radius: 20px;
 
 .StudentName, #AssName {
   font-weight: 500;
-  background-color: $Black;
-  opacity: 0.95;
-  color: $BtnBlue;
-  border-radius: 5px;
+  background-color: $White;
+  color: $Black;
+  margin: 0;
+  vertical-align: middle;
+  padding-left: 15px;
+  padding-top: 6px;
+  max-height: 37px;
+}
+
+#createStudent {
+  padding: 0;
+  margin-bottom: 0 !important;
+}
+
+#comment, #grade {
+  border-radius: 0;
+}
+
+#grading {
+  background-color: $LightGray;
 }
 
 #Highlighted {
   font-weight: 500;
-  background-color: yellow;
-  opacity: 0.95;
+  background-color: $Yellow;
   color: $Black;
-  border-radius: 5px;
+  margin: 0;
+  vertical-align: middle;
+  padding-left: 15px;
+  padding-top: 6px;
+  max-height: 37px;
 }
 
 body {
