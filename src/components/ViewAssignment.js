@@ -25,7 +25,7 @@ class ViewAssignment extends React.Component {
       <Container>
         {assignment ?
           <Row>
-            <h1 className='viewAssignmentHeader'>{assignment.assignment_name}</h1> : null}
+            <h1 className='viewAssignmentHeader'>{assignment.assignment_name}</h1>}
           <Col>
               <div className='float-right'>
                 <Row>
@@ -36,7 +36,15 @@ class ViewAssignment extends React.Component {
             </Col>
           </Row>
           :
-          null
+          <Row>
+
+            <h2 className='viewAssignmentHeader'>Assignment Ungraded</h2>
+            <Col>
+              <div className='float-right'>
+                <Link to={`/subjects/${subjectId}`}><Button id='Back'><i class="fa fa-arrow-left" aria-hidden="true"></i> {`Back to ${this.props.subject.subject_name}`}</Button></Link>
+              </div>
+            </Col>
+          </Row>
         }
 
         {assignment ? <h4 className='viewAssignmentHeader'><Moment format='MM/DD/YY'>{assignment.date}</Moment></h4> : null}
@@ -53,12 +61,13 @@ class ViewAssignment extends React.Component {
 
           <tbody>
             {
+
               this.props.assignments.map(asn => {
                 return (
                   <tr key={asn.assignment_id}>
                     <td>{asn.first_name + ' ' + asn.last_name}</td>
                     <td>{asn.grade}</td>
-                    
+
                     <td>{asn.comment}</td>
                     <td><Link to={`/createassignment/${subjectId}/${asn.assignment_id}/student/${asn.student_id}`}><Button id='Edit'><i class="fa fa-pencil" aria-hidden="true"></i> Edit</Button></Link></td>
                   </tr>

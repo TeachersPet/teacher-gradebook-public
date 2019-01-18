@@ -30,6 +30,17 @@ class CreateAssignment extends React.Component {
 
     componentWillReceiveProps(props) {
         const editingId = props.match.params.editingId
+
+        const unGraded = {}
+
+        props.students.forEach( (student) => {
+            unGraded[student.id] = { id: student.id, grade: 0, comment: null}
+        })
+
+        this.setState({
+            grades: unGraded
+        })
+
         if (props.assignments.length && editingId) {
             const studentsObj = {}
             props.assignments.forEach(assignment => {

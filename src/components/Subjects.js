@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Container, Col, Row } from 'reactstrap'
+import { Button, Container, Col, Row, Card, CardBody, CardTitle, CardText } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -15,7 +15,7 @@ class SubjectsPage extends React.Component {
     this.props.getAssignments(teacherId, subjectId)
     this.props.getOneSubject(teacherId, subjectId)
   }
-  
+
   render() {
     const subjectId = this.props.match.params.id
     return (
@@ -28,17 +28,30 @@ class SubjectsPage extends React.Component {
               </Link>
             </Col>
             <Col>
-            <Link to={`/Gradebook/1`}>
-              <Button className='float-right' id='BtnBackStud'><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</Button>
+              <Link to={`/Gradebook/1`}>
+                <Button className='float-right' id='BtnBackStud'><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</Button>
               </Link>
             </Col>
           </Row>
         </Container>
 
-        <Container>
-          <h1 id='SubjectTitle'>{this.props.subject.subject_name}</h1>
-          {this.props.assignments.map(assignment => <PostedAssignment key={assignment.id} {...assignment} subjectId={subjectId} />)}
-        </Container>
+        {this.props.assignments.length ?
+
+          <Container>
+            <h1 id='SubjectTitle'>{this.props.subject.subject_name}</h1>
+            {this.props.assignments.map(assignment => <PostedAssignment key={assignment.id} {...assignment} subjectId={subjectId} />)}
+          </Container>
+          :
+          <Container>
+            <Card className='border'>
+              <CardBody className='SubjectCards'>
+                <CardTitle > No Assignments </CardTitle>
+                <CardText>
+                </CardText>
+              </CardBody>
+            </Card>
+          </Container>
+        }
       </div>
     )
   }
