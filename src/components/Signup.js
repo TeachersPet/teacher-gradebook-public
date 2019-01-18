@@ -11,9 +11,7 @@ import {
   Alert
 } from 'reactstrap'
 import { Link} from 'react-router-dom'
-import {browserHistory}  from 'react-router'
 import axios from 'axios'
-import Login from './Login'
 
 class Signup extends Component {
   constructor(props) {
@@ -79,16 +77,9 @@ class Signup extends Component {
         Sign Up
         </Button>
 
- 
-
-     
-
-
         <Link to='/'>Already A Member? Login.</Link>
         {this.state.showErrorMessage ?
-         
          <Alert className='signup-fail float-left' color='danger'>Could not create account.</Alert>
-       
          : null
        }
       </Form> 

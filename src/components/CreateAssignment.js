@@ -18,6 +18,15 @@ class CreateAssignment extends React.Component {
         }
     }
 
+    componentDidMount() {
+        const subjectId = this.props.match.params.subjectId
+        const editingId = this.props.match.params.editingId
+        const teacherId = this.props.authentication.user
+        this.props.getStudents(teacherId)
+        this.props.getOneSubject(teacherId, subjectId)
+        if (editingId) this.props.getOneAssignment(teacherId, subjectId, editingId)
+    }
+
     componentWillReceiveProps(props) {
         const editingId = props.match.params.editingId
 
@@ -31,31 +40,6 @@ class CreateAssignment extends React.Component {
             grades: unGraded
         })
 
-        if (props.assignments.length && editingId) {
-            const studentsObj = {}
-            props.assignments.forEach(assignment => {
-                studentsObj[assignment.student_id] = { id: assignment.student_id, grade: assignment.grade, comment: assignment.comment }
-            })
-
-            this.setState({
-                title: props.assignments[0].assignment_name,
-                date: moment(props.assignments[0].date).format('YYYY-MM-DD'),
-                grades: studentsObj
-            })
-        }
-    }
-
-    componentDidMount() {
-        const subjectId = this.props.match.params.subjectId
-        const editingId = this.props.match.params.editingId
-        const teacherId = this.props.authentication.user
-        this.props.getStudents(teacherId)
-        this.props.getOneSubject(teacherId, subjectId)
-        if (editingId) this.props.getOneAssignment(teacherId, subjectId, editingId)
-    }
-
-    componentWillReceiveProps(props) {
-        const editingId = props.match.params.editingId
         if (props.assignments.length && editingId) {
             const studentsObj = {}
             props.assignments.forEach(assignment => {
