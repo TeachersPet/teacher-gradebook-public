@@ -61,7 +61,7 @@ export class StudentAccordian extends Component {
                         <td>{assignment.comment}</td>
                         <td>
                           <Link to={`/createassignment/${this.props.id}/${assignment.assignment_id}/student/${this.props.studentId}`}>
-                            <Button id='Edit'><i class="fa fa-pencil" aria-hidden="true"></i> Edit</Button>
+                            <Button id='Edit'><i class='fa fa-pencil' aria-hidden='true'></i> Edit</Button>
                           </Link>
                         </td>
                       </tr>

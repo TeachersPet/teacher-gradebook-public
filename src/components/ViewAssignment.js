@@ -10,16 +10,16 @@ import { getOneSubject } from '../actions/subjects'
 class ViewAssignment extends React.Component {
 
   componentDidMount = () => {
-    const teacherId = this.props.authentication.user
-    const subjectId = this.props.match.params.subjectId
-    const assignmentId = this.props.match.params.id
-    this.props.getOneSubject(teacherId, subjectId)
-    this.props.getOneAssignment(teacherId, subjectId, assignmentId)
+  const teacherId = this.props.authentication.user
+  const subjectId = this.props.match.params.subjectId
+  const assignmentId = this.props.match.params.id
+  this.props.getOneSubject(teacherId, subjectId)
+  this.props.getOneAssignment(teacherId, subjectId, assignmentId)
   }
 
   render() {
-    const assignment = this.props.assignments[0]
-    const subjectId = this.props.match.params.subjectId
+  const assignment = this.props.assignments[0]
+  const subjectId = this.props.match.params.subjectId
 
     return (
       <Container>
@@ -47,17 +47,17 @@ class ViewAssignment extends React.Component {
           </Row>
         }
 
-        {assignment ? <h4 className='viewAssignmentHeader'><Moment format='MM/DD/YY'>{assignment.date}</Moment></h4> : null}
+    {assignment ? <h4 className='viewAssignmentHeader'><Moment format='MM/DD/YY'>{assignment.date}</Moment></h4> : null}
 
-        <Table striped className='AssignmentTable'>
-          <thead>
-            <tr>
-              <th>Student</th>
-              <th>Grade</th>
-              <th>Comments</th>
-              <th></th>
-            </tr>
-          </thead>
+    <Table striped className='AssignmentTable'>
+      <thead>
+      <tr>
+        <th>Student</th>
+        <th>Grade</th>
+        <th>Comments</th>
+        <th></th>
+      </tr>
+      </thead>
 
           <tbody>
             {
@@ -83,16 +83,16 @@ class ViewAssignment extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    assignments: state.assignments,
-    subject: state.subject,
-    authentication: state.authentication
+  assignments: state.assignments,
+  subject: state.subject,
+  authentication: state.authentication
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    getOneAssignment,
-    getOneSubject
+  getOneAssignment,
+  getOneSubject
   }, dispatch)
 }
 

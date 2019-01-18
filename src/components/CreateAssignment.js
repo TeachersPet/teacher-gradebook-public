@@ -11,11 +11,37 @@ import moment from 'moment'
 class CreateAssignment extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             title: '',
             date: '',
             grades: {},
+        }
+    }
+
+    componentWillReceiveProps(props) {
+        const editingId = props.match.params.editingId
+
+        const unGraded = {}
+
+        props.students.forEach((student) => {
+            unGraded[student.id] = { id: student.id, grade: 0, comment: null }
+        })
+
+        this.setState({
+            grades: unGraded
+        })
+
+        if (props.assignments.length && editingId) {
+            const studentsObj = {}
+            props.assignments.forEach(assignment => {
+                studentsObj[assignment.student_id] = { id: assignment.student_id, grade: assignment.grade, comment: assignment.comment }
+            })
+
+            this.setState({
+                title: props.assignments[0].assignment_name,
+                date: moment(props.assignments[0].date).format('YYYY-MM-DD'),
+                grades: studentsObj
+            })
         }
     }
 
@@ -30,17 +56,6 @@ class CreateAssignment extends React.Component {
 
     componentWillReceiveProps(props) {
         const editingId = props.match.params.editingId
-
-        const unGraded = {}
-
-        props.students.forEach( (student) => {
-            unGraded[student.id] = { id: student.id, grade: 0, comment: null}
-        })
-
-        this.setState({
-            grades: unGraded
-        })
-
         if (props.assignments.length && editingId) {
             const studentsObj = {}
             props.assignments.forEach(assignment => {
@@ -82,6 +97,7 @@ class CreateAssignment extends React.Component {
             students: Object.values(this.state.grades)
         }
 
+
         editingId ?
             this.props.updateAssignment(teacherId, subjectId, editingId, assignment)
             :
@@ -106,7 +122,6 @@ class CreateAssignment extends React.Component {
                         <Label for='date'><h3 id='AssignDate'>Date</h3></Label>
                         <Input type='date' name='date' id='date' value={this.state.date} onChange={this.handleChange} required />
                     </FormGroup>
-                    <div id='grading'>
                     {this.props.students.map(student => {
                         return <CreateAssignmentStudent key={student.id} {...student}
                             handleStudentChange={this.handleStudentChange}
@@ -116,8 +131,7 @@ class CreateAssignment extends React.Component {
                         />
                     })
                     }
-                    </div>
-                    <Button className='float-right' id='GradeSubmit'><i class="fa fa-paper-plane" aria-hidden="true"></i> Submit</Button>
+                    <Button className='float-right' id='GradeSubmit'><i class='fa fa-paper-plane' aria-hidden='true'></i> Submit</Button>
                 </Form>
             </Container>
         )
