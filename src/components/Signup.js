@@ -20,7 +20,7 @@ class Signup extends Component {
     this.state = {
       first_name: '',
       last_name: '',
-      grade_level: '',
+      grade_level: 'K',
       email: '',
       password: '',
       showErrorMessage: false

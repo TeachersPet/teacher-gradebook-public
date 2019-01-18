@@ -95,7 +95,7 @@ class CreateAssignment extends React.Component {
         const subjectName = this.props.subject.subject_name
         return (
             <Container>
-                <Button className='float-right' id='BtnBackStud' onClick={this.props.history.goBack}><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</Button>
+                <Button className='float-right' id='BtnBackStud' onClick={this.props.history.goBack}><i className="fa fa-arrow-left" aria-hidden="true"></i> Back</Button>
                 <h1 id='NewAssignment'>{editingId ? `Edit ${subjectName}` : `New ${subjectName}`} Assignment</h1><br></br>
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
@@ -106,15 +106,18 @@ class CreateAssignment extends React.Component {
                         <Label for='date'><h3 id='AssignDate'>Date</h3></Label>
                         <Input type='date' name='date' id='date' value={this.state.date} onChange={this.handleChange} required />
                     </FormGroup>
-                    {this.props.students.map(student => {
-                        return <CreateAssignmentStudent key={student.id} {...student}
-                            handleStudentChange={this.handleStudentChange}
-                            grade={this.state.grades[student.id] ? this.state.grades[student.id].grade : 0}
-                            comment={this.state.grades[student.id] ? this.state.grades[student.id].comment : ''}
-                            studentId={parseInt(this.props.match.params.studentId)}
-                        />
-                    })
-                    }
+                    <div id='grading'>
+
+                        {this.props.students.map(student => {
+                            return <CreateAssignmentStudent key={student.id} {...student}
+                                handleStudentChange={this.handleStudentChange}
+                                grade={this.state.grades[student.id] ? this.state.grades[student.id].grade : 0}
+                                comment={this.state.grades[student.id] ? this.state.grades[student.id].comment : ''}
+                                studentId={parseInt(this.props.match.params.studentId)}
+                            />
+                        })
+                        }
+                    </div>
                     <Button className='float-right' id='GradeSubmit'><i class='fa fa-paper-plane' aria-hidden='true'></i> Submit</Button>
                 </Form>
             </Container>
