@@ -57,7 +57,7 @@ render() {
         {
           this.props.authentication.user ?
         <Link to='/'>
-          <Button id="SignIn" onClick={this.logout} ><i class="far fa-user"></i> Log Out</Button> 
+          <Button id='SignIn' onClick={this.logout} ><i class='far fa-user'></i> Log Out</Button> 
         </Link> : null
         }
         </Nav>
