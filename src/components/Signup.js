@@ -7,7 +7,8 @@ import {
   Container,
   Row,
   Col,
-  Input
+  Input,
+  Alert
 } from 'reactstrap'
 import { Link} from 'react-router-dom'
 import {browserHistory}  from 'react-router'
@@ -16,35 +17,29 @@ import Login from './Login'
 
 class Signup extends Component {
   constructor(props) {
-  super(props)
-  
-  this.state = {
-    first_name: '',
-    last_name: '',
-    grade_level: '',
-    email: '',
-    password: ''
-  }
+    super(props)
+    
+    this.state = {
+      first_name: '',
+      last_name: '',
+      grade_level: '',
+      email: '',
+      password: '',
+      showErrorMessage: false
+    }
   }
 
   handleSignUp = (e) => {  
     e.preventDefault()  
     const newTeacher = {...this.state}
     
-    console.log(newTeacher)
     axios.post(`${process.env.REACT_APP_API_URL}/teachers`, newTeacher)
-    .then((response) => {
-      console.log('created user ' + response.data)
+    .then(() => {
+      this.props.history.push('/')
     })
-    .catch( () => console.log('Could not create user.'))
- 
-    this.props.history.push('/')
+    .catch( () => this.setState( {showErrorMessage: true}) )
  
   }
-
-
-  
-
 
   render() {
   return (
@@ -83,8 +78,22 @@ class Signup extends Component {
         <Button className='mr-3' type='submit' color='primary'>
         Sign Up
         </Button>
+
+ 
+
+     
+
+
         <Link to='/'>Already A Member? Login.</Link>
-      </Form>          </Col>
+        {this.state.showErrorMessage ?
+         
+         <Alert className='signup-fail float-left' color='danger'>Could not create account.</Alert>
+       
+         : null
+       }
+      </Form> 
+      
+    </Col>
     </Row>
     </Container>
   )
