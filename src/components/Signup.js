@@ -9,8 +9,10 @@ import {
   Col,
   Input
 } from 'reactstrap'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
+import {browserHistory}  from 'react-router'
 import axios from 'axios'
+import Login from './Login'
 
 class Signup extends Component {
   constructor(props) {
@@ -35,6 +37,9 @@ class Signup extends Component {
           console.log('created user ' + response.data)
         })
         .catch( () => console.log('Could not create user.'))
+ 
+      this.props.history.push('/')
+ 
   }
 
 
